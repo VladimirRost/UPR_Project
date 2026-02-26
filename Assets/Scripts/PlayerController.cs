@@ -172,7 +172,9 @@ public class PlayerController : MonoBehaviour
 
     public void ButtonExitGame()  //  Выход на страницу сайта
     {
-        Application.OpenURL(webAddress);
+        //Application.OpenURL(webAddress);
+        Application.ExternalEval("window.open('" + webAddress + "','_self')");
+        Application.Quit();
     }
 
     public void ButtonCancelGame()  //  Возврат в игру
