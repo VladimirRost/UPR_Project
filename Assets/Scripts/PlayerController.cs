@@ -91,7 +91,8 @@ public class PlayerController : MonoBehaviour
         yaw += deltaX * _sensitivity_mouse * Time.deltaTime;
             pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
             pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
-            transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+       // transform.localEulerAngles = new Vector3(pitch, yaw, 0f);
     }
 
     // Перемещение игрока

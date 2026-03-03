@@ -1,4 +1,45 @@
-*.cs text
-*.unity merge=unityyamlmerge eol=lf
-*.prefab merge=unityyamlmerge eol=lf
-*.asset merge=unityyamlmerge eol=lf
+# Автоопределение текстовых файлов
+* text=auto
+
+# Unity текстовые файлы (нужна нормализация окончаний строк)
+*.meta text=auto
+*.unity text=auto
+*.asset text=auto
+*.prefab text=auto
+*.mat text=auto
+*.anim text=auto
+*.controller text=auto
+*.shader text=auto
+*.cs text=diff
+
+# Файлы сцен и префабов (особо важны для мержа)
+*.unity text=auto merge=unityyamlmerge
+*.prefab text=auto merge=unityyamlmerge
+*.asset text=auto merge=unityyamlmerge
+
+# Бинарные файлы (НЕ конвертировать окончания строк)
+*.fbx binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.tga binary
+*.bmp binary
+*.psd binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.avi binary
+*.mp4 binary
+*.mov binary
+*.dll binary
+*.so binary
+*.exe binary
+*.pdf binary
+*.zip binary
+*.rar binary
+*.7z binary
+
+# Файлы специфичные для вашего проекта (GavsHome)
+Assets/GavsHome/**/*.fbx binary
+Assets/GavsHome/**/*.jpg binary
+Assets/GavsHome/**/*.png binary
