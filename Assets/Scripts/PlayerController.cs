@@ -211,6 +211,8 @@ public class PlayerController : MonoBehaviour
     {
         // установка названия кнопки ХОДЬБА
 
+   
+
         PanelExitWindow.SetActive(false); // Убираем панель выхода
 
         textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>(); // Считываем компонент текст с кнопки режима
