@@ -54,12 +54,14 @@ public class Door : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (gameObject.tag == "Door") interaction_image.SetActive(true);
+        Debug.Log("Есть наведение");
+        //if (gameObject.tag == "Door") interaction_image.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        if (gameObject.tag == "Door") interaction_image.SetActive(false);
+        Debug.Log("Есть уход");
+        //if (gameObject.tag == "Door") interaction_image.SetActive(false);
     }
 
     void OnMouseDown()
@@ -122,6 +124,8 @@ public class Door : MonoBehaviour
             {
                 if (open_type == open_type_ENUM.move_to_open) // движение
                 {
+                    // ---------------------------------------------------------------------------------------
+                    Debug.Log("Начало сдвига");  // не работает !!!!!!!!
 
                     if (door_axis == door_axis_ENUM.X)
                     {
