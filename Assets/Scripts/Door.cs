@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Windows;
 
 
 public class Door : MonoBehaviour
  {
-    //[Header("Door Settings")]
+    // Получение доступа до системы управления из главного скрипта
+    private PlayerController playerController;
+    private int lastFrameLeft = -1;
+
     public enum open_type_ENUM { rot_to_open, move_to_open} // тип открывание
     public open_type_ENUM open_type;
     public enum door_axis_ENUM { X,Y,Z} //  ось вращения
@@ -23,20 +27,31 @@ public class Door : MonoBehaviour
 
 
     [Header("Objects")]
-    [SerializeField] private GameObject door_handle;
     [SerializeField] private GameObject interaction_image;
+    [SerializeField] private GameObject door_handle;
+ 
 
     [Header("Audio Setting")]
     [SerializeField] private AudioSource move_or_rot_sound;
     [SerializeField] private AudioSource open_sound;
     [SerializeField] private AudioSource close_sound;
     [SerializeField] private AudioSource not_open_sound;
-    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+
+
+
+// Start is called once before the first execution of Update after the MonoBehaviour is created
+void Start()
     {
-        Debug.Log("Дверь начало");
+
+
+       // Debug.Log(playerController.Input.PlayerActionControl.PressLeftButton);
+        playerController = FindFirstObjectByType<PlayerController>(); // находим систему управления
+
+
+        //Debug.Log("Дверь начало");
         if (open_type == open_type_ENUM.move_to_open)
         {
             if (door_axis == door_axis_ENUM.X) start_dist_or_angle = transform.localPosition.x;
@@ -55,26 +70,40 @@ public class Door : MonoBehaviour
     void OnMouseEnter()
     {
         Debug.Log("Есть наведение");
-        //if (gameObject.tag == "Door") interaction_image.SetActive(true);
+        if (gameObject.tag == "Door") interaction_image.SetActive(true);
+
     }
 
     void OnMouseExit()
     {
         Debug.Log("Есть уход");
-        //if (gameObject.tag == "Door") interaction_image.SetActive(false);
+        if (gameObject.tag == "Door") interaction_image.SetActive(false);
     }
 
     void OnMouseDown()
     {
-        if (gameObject.tag == "Door")
+
+        if (playerController.Input.PlayerActionControl.PressLeftButton.WasPressedThisFrame()
+    && lastFrameLeft != Time.frameCount)
         {
-            if (door_handle)
+            lastFrameLeft = Time.frameCount;
+
+
+
+
+
+
+            if (gameObject.tag == "Door")
             {
-                if (handle_axis == handle_axis_ENUM.X) door_handle.transform.localRotation = Quaternion.Euler(handle_rot_angle, 0f, 0f);
-                else if (handle_axis == handle_axis_ENUM.Y) door_handle.transform.localRotation = Quaternion.Euler(0f, handle_rot_angle, 0f);
-                else if (handle_axis == handle_axis_ENUM.Z) door_handle.transform.localRotation = Quaternion.Euler(0f, 0f, handle_rot_angle);
+                Debug.Log(" Объект Door");
+                if (door_handle)
+                {
+                    if (handle_axis == handle_axis_ENUM.X) door_handle.transform.localRotation = Quaternion.Euler(handle_rot_angle, 0f, 0f);
+                    else if (handle_axis == handle_axis_ENUM.Y) door_handle.transform.localRotation = Quaternion.Euler(0f, handle_rot_angle, 0f);
+                    else if (handle_axis == handle_axis_ENUM.Z) door_handle.transform.localRotation = Quaternion.Euler(0f, 0f, handle_rot_angle);
+                }
+                Open_close();
             }
-            Open_close(); 
         }
     }
 
@@ -118,6 +147,19 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        if (playerController.Input.PlayerActionControl.PressRightButton.WasPressedThisFrame())
+        {
+            Debug.Log("Right mouse");
+        }
+
+
+
+
+
+
         if (open_close_ON)
         {
             if (is_open) // Открываем двеоь

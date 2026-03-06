@@ -57,11 +57,18 @@ public class PlayerController : MonoBehaviour
     private float pitch;
 
     private PlayerClassControl input;
+   
+    
+    // Открытие управления для дпугих скриптов   ---------------------------------
+    public PlayerClassControl Input => input;
+    //    ---------------------------------
+
+  
 
     private void Awake()
     {
        input = new PlayerClassControl();
-
+       input.Enable();
     }
 
     private void OnEnable()

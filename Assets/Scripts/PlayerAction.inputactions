@@ -77,6 +77,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PressLeftButton",
+                    "type": "Button",
+                    "id": "01357984-7400-453d-a8d7-d05114d707c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PressRightButton",
+                    "type": "Button",
+                    "id": "e0d8a38c-c381-45eb-bc6e-f94f7c510e3e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -308,6 +326,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "FlyMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74e50b31-a19a-44ea-be5b-42e5a38cd713",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressLeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1ca5b35-b18f-48e3-bbcf-d4fdf3105915",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressRightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

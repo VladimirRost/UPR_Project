@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Door.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\Door.cs",
               "RelativeToolTip": "Assets\\Scripts\\Door.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAIwH8AAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T09:38:48.797Z",
               "EditorCaption": ""
@@ -77,9 +77,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwEMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T10:57:41.081Z"
+              "WhenOpened": "2026-02-20T10:57:41.081Z",
+              "EditorCaption": ""
             }
           ]
         }
