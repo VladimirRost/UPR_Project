@@ -95,6 +95,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenDoorE",
+                    "type": "Button",
+                    "id": "08ade56b-d826-4b4a-b9a0-01195dd362d8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseDoorC",
+                    "type": "Button",
+                    "id": "c4cc0350-f697-4b3d-a33d-29247d9cce16",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -348,6 +366,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressRightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7035c64-3d95-4055-9dc1-70656d65ed5a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenDoorE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f40446f4-497c-42fd-b8e5-37f177c32871",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseDoorC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
