@@ -6,5 +6,7 @@
 
 public interface IInteractable
 {
-    void Interact();
+    void Interact(); // Вызов по нажатию кнопки
+    void OnFocus();
+    void OnLoseFocus();
 }

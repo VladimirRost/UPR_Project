@@ -17,6 +17,9 @@ public class PlayerInteractor : MonoBehaviour
     // ссылка на систему ввода
     private PlayerController playerController;
 
+    // текущий объект под прицелом
+    private IInteractable currentInteractable;
+
     void Start()
     {
         // получаем главный контроллер игрока
@@ -29,10 +32,13 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update()
     {
+
+        CheckInteractable();  // Проверяем взгляд на объект
         // Проверяем кнопку взаимодействия
         if (playerController.Input.PlayerActionControl.PressLeftButton.WasPressedThisFrame())
         {
             TryInteract();
+
         }
     }
 
@@ -53,7 +59,47 @@ public class PlayerInteractor : MonoBehaviour
             if (interactable != null)
             {
                 interactable.Interact();
+                // Ниже сам пишу..................................
+                //interactable.OnFocus(); // Работает вызов
             }
         }
     }
+
+    //Проверка объекта под прицелом
+    void CheckInteractable()
+    {
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactDistance))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
+            if (interactable != null)
+            {
+                if (currentInteractable != interactable)
+                {
+                    currentInteractable?.OnLoseFocus();
+                    currentInteractable = interactable;
+                    currentInteractable.OnFocus();
+                }
+
+                Debug.Log("Объект под прицелом");
+
+                return;
+            }
+        }
+
+        // если никуда не смотрим
+        if (currentInteractable != null)
+        {
+            currentInteractable.OnLoseFocus();
+            currentInteractable = null;
+        }
+
+    }
+
+   
+
 }
