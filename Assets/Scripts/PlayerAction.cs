@@ -163,6 +163,42 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PressLeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""01357984-7400-453d-a8d7-d05114d707c9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PressRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0d8a38c-c381-45eb-bc6e-f94f7c510e3e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenDoorE"",
+                    ""type"": ""Button"",
+                    ""id"": ""08ade56b-d826-4b4a-b9a0-01195dd362d8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseDoorC"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4cc0350-f697-4b3d-a33d-29247d9cce16"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -396,6 +432,50 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                     ""action"": ""FlyMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74e50b31-a19a-44ea-be5b-42e5a38cd713"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressLeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1ca5b35-b18f-48e3-bbcf-d4fdf3105915"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7035c64-3d95-4055-9dc1-70656d65ed5a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenDoorE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f40446f4-497c-42fd-b8e5-37f177c32871"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseDoorC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -412,6 +492,10 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         m_PlayerActionControl_PressMouseButton = m_PlayerActionControl.FindAction("PressMouseButton", throwIfNotFound: true);
         m_PlayerActionControl_Jump = m_PlayerActionControl.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActionControl_FlyMode = m_PlayerActionControl.FindAction("FlyMode", throwIfNotFound: true);
+        m_PlayerActionControl_PressLeftButton = m_PlayerActionControl.FindAction("PressLeftButton", throwIfNotFound: true);
+        m_PlayerActionControl_PressRightButton = m_PlayerActionControl.FindAction("PressRightButton", throwIfNotFound: true);
+        m_PlayerActionControl_OpenDoorE = m_PlayerActionControl.FindAction("OpenDoorE", throwIfNotFound: true);
+        m_PlayerActionControl_CloseDoorC = m_PlayerActionControl.FindAction("CloseDoorC", throwIfNotFound: true);
     }
 
     ~@PlayerClassControl()
@@ -500,6 +584,10 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionControl_PressMouseButton;
     private readonly InputAction m_PlayerActionControl_Jump;
     private readonly InputAction m_PlayerActionControl_FlyMode;
+    private readonly InputAction m_PlayerActionControl_PressLeftButton;
+    private readonly InputAction m_PlayerActionControl_PressRightButton;
+    private readonly InputAction m_PlayerActionControl_OpenDoorE;
+    private readonly InputAction m_PlayerActionControl_CloseDoorC;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerActionControl".
     /// </summary>
@@ -543,6 +631,22 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerActionControl/FlyMode".
         /// </summary>
         public InputAction @FlyMode => m_Wrapper.m_PlayerActionControl_FlyMode;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/PressLeftButton".
+        /// </summary>
+        public InputAction @PressLeftButton => m_Wrapper.m_PlayerActionControl_PressLeftButton;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/PressRightButton".
+        /// </summary>
+        public InputAction @PressRightButton => m_Wrapper.m_PlayerActionControl_PressRightButton;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/OpenDoorE".
+        /// </summary>
+        public InputAction @OpenDoorE => m_Wrapper.m_PlayerActionControl_OpenDoorE;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/CloseDoorC".
+        /// </summary>
+        public InputAction @CloseDoorC => m_Wrapper.m_PlayerActionControl_CloseDoorC;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -593,6 +697,18 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @FlyMode.started += instance.OnFlyMode;
             @FlyMode.performed += instance.OnFlyMode;
             @FlyMode.canceled += instance.OnFlyMode;
+            @PressLeftButton.started += instance.OnPressLeftButton;
+            @PressLeftButton.performed += instance.OnPressLeftButton;
+            @PressLeftButton.canceled += instance.OnPressLeftButton;
+            @PressRightButton.started += instance.OnPressRightButton;
+            @PressRightButton.performed += instance.OnPressRightButton;
+            @PressRightButton.canceled += instance.OnPressRightButton;
+            @OpenDoorE.started += instance.OnOpenDoorE;
+            @OpenDoorE.performed += instance.OnOpenDoorE;
+            @OpenDoorE.canceled += instance.OnOpenDoorE;
+            @CloseDoorC.started += instance.OnCloseDoorC;
+            @CloseDoorC.performed += instance.OnCloseDoorC;
+            @CloseDoorC.canceled += instance.OnCloseDoorC;
         }
 
         /// <summary>
@@ -628,6 +744,18 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @FlyMode.started -= instance.OnFlyMode;
             @FlyMode.performed -= instance.OnFlyMode;
             @FlyMode.canceled -= instance.OnFlyMode;
+            @PressLeftButton.started -= instance.OnPressLeftButton;
+            @PressLeftButton.performed -= instance.OnPressLeftButton;
+            @PressLeftButton.canceled -= instance.OnPressLeftButton;
+            @PressRightButton.started -= instance.OnPressRightButton;
+            @PressRightButton.performed -= instance.OnPressRightButton;
+            @PressRightButton.canceled -= instance.OnPressRightButton;
+            @OpenDoorE.started -= instance.OnOpenDoorE;
+            @OpenDoorE.performed -= instance.OnOpenDoorE;
+            @OpenDoorE.canceled -= instance.OnOpenDoorE;
+            @CloseDoorC.started -= instance.OnCloseDoorC;
+            @CloseDoorC.performed -= instance.OnCloseDoorC;
+            @CloseDoorC.canceled -= instance.OnCloseDoorC;
         }
 
         /// <summary>
@@ -724,5 +852,33 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFlyMode(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PressLeftButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPressLeftButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PressRightButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPressRightButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenDoorE" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenDoorE(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CloseDoorC" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCloseDoorC(InputAction.CallbackContext context);
     }
 }
