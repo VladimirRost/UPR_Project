@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: d03691536a28be545816358fbb38a733, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0615848ec7a94bd46a17be09dcbb5203, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f8dfa7260ca8ed64b81e459aaa9079da, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 106958026}
   - component: {fileID: 106958025}
   - component: {fileID: 106958028}
+  - component: {fileID: 106958029}
   m_Layer: 0
   m_Name: DoorMove
   m_TagString: Door
@@ -595,6 +596,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &106958029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106958023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.22996926, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &128703443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &351368746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1531,7 +1550,12 @@ MonoBehaviour:
   handleSpeed: 6
   renderers:
   - {fileID: 1982824340}
-  highlightColor: {r: 0.8000001, g: 0.34117648, b: 0.3254902, a: 0.4392157}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 4
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!65 &403815383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4226,7 +4250,12 @@ MonoBehaviour:
   handleSpeed: 6
   renderers:
   - {fileID: 106958026}
-  highlightColor: {r: 0.7960785, g: 0.7725491, b: 0.7725491, a: 0.25882354}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 4
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!65 &1452454788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4442,7 +4471,12 @@ MonoBehaviour:
   handleSpeed: 5
   renderers:
   - {fileID: 1907969626}
-  highlightColor: {r: 0.5707547, g: 0.5707547, b: 0.5707547, a: 1}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 4
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!1 &1528387799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5411,6 +5445,7 @@ GameObject:
   - component: {fileID: 1907969627}
   - component: {fileID: 1907969626}
   - component: {fileID: 1907969625}
+  - component: {fileID: 1907969628}
   m_Layer: 0
   m_Name: DoorMesh
   m_TagString: Untagged
@@ -5511,6 +5546,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907969623}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1907969628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907969623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0.972549, g: 0.007843129, b: 0.38208187, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 1
+  bakeKeys:
+  - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  bakeValues:
+  - data:
+    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: -0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: -0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
+    - {x: 0.57735026, y: 0.57735026, z: 0.57735026}
+    - {x: 0.57735026, y: -0.57735026, z: 0.57735026}
 --- !u!1 &1951479670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,6 +5794,7 @@ GameObject:
   - component: {fileID: 1982824340}
   - component: {fileID: 1982824339}
   - component: {fileID: 1982824338}
+  - component: {fileID: 1982824342}
   m_Layer: 0
   m_Name: DoorMove
   m_TagString: Door
@@ -5843,6 +5923,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982824336}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1982824342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982824336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0.0754717, g: 0.23293607, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1985381368
 GameObject:
   m_ObjectHideFlags: 0

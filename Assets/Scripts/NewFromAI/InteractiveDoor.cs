@@ -38,11 +38,18 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     Quaternion handleStartRotation;
     Quaternion handlePressedRotation;
 
-    [Header("Подсветка объекта при наведении")]
-    public Renderer[] renderers;
-    public Color highlightColor = Color.yellow;
 
+    // Старая подсветка объекта
+    [Header("Объект для подсветки")]
+    public Renderer[] renderers;
+    private Color highlightColor = Color.yellow;
     private Color[] originalEmission;
+
+
+
+
+
+
 
 
 
@@ -55,6 +62,20 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     private Vector3 openPosition;
 
     private float autoCloseTimer;
+
+
+    Outline outline;  // Подсветка по контуру  ------------------------------------------
+
+    [Header("Цвет наведения")]
+    [SerializeField] Shader outlineMaskShader;
+    [SerializeField] Shader outlineFillShader;
+    public float outlineWidth = 4f;
+    public float outlineAppearSpeed = 10f;
+    public float pulseAmplitude = 0.5f;
+    public float pulseSpeed = 3f;
+
+    bool isFocused;
+
 
     void Start()
     {
@@ -93,6 +114,16 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
             
 
         }
+
+        outline = GetComponentInChildren<Outline>();  // инициализация контурной подсветки
+        if (outline != null)
+        {
+            outline.enabled = true;
+            outline.OutlineWidth = 0;
+        }
+
+
+
 
 
     }
@@ -142,6 +173,28 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
             );
         }
 
+        // Анимация контура подсветки Начало  ------------------------------------
+        if (outline == null) return;
+
+        float targetWidth = isFocused ? outlineWidth : 0f;
+
+        outline.OutlineWidth = Mathf.Lerp(
+            outline.OutlineWidth,
+            targetWidth,
+            Time.deltaTime * outlineAppearSpeed
+        );
+
+        if (isFocused)
+        {
+            float pulse =
+                Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
+
+            outline.OutlineWidth += pulse;
+        }
+
+        // Анимация контура подсветки Конец   ------------------------
+
+
     }
 
     public void Interact()
@@ -161,24 +214,39 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
 
     public void OnFocus() 
     {
-        Debug.Log("Он фокус");
-        Highlight(true);
+        //Debug.Log("Он фокус");
+        //Highlight(true);
+
+        //if (InteractionUI.Instance)
+        //    InteractionUI.Instance.Show();
+
+        isFocused = true;
 
         if (InteractionUI.Instance)
             InteractionUI.Instance.Show();
+
+
 
     }
 
     public void OnLoseFocus()
     {
-        Debug.Log("ОУТ фокус");
-        Highlight(false);
+        //Debug.Log("ОУТ фокус");
+        //Highlight(false);
+
+        //if (InteractionUI.Instance)
+        //    InteractionUI.Instance.Hide();
+
+        isFocused = false;
 
         if (InteractionUI.Instance)
             InteractionUI.Instance.Hide();
 
+
     }
-    void Highlight(bool state)
+    
+    // HighLight не используется
+    void Highlight(bool state)  
     {
         if (renderers == null) return;
 

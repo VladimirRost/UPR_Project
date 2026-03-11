@@ -17,7 +17,8 @@ public class InteractionUI : MonoBehaviour
     public void Show()
     {
         if (interactIcon)
-            interactIcon.SetActive(true);
+           // interactIcon.SetActive(true);
+        interactIcon.SetActive(false);
     }
 
     public void Hide()
