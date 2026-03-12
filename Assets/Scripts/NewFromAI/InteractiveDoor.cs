@@ -118,8 +118,8 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
         outline = GetComponentInChildren<Outline>();  // инициализация контурной подсветки
         if (outline != null)
         {
-            outline.enabled = true;
-            outline.OutlineWidth = 0;
+            outline.enabled = false;
+            outline.OutlineWidth = 5f;
         }
 
 
@@ -220,6 +220,11 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
         //if (InteractionUI.Instance)
         //    InteractionUI.Instance.Show();
 
+        if (outline != null)
+        {
+            outline.enabled = true;   // включаем контур
+            outline.EmissionOn();     // включаем свечение
+        }
         isFocused = true;
 
         if (InteractionUI.Instance)
@@ -231,12 +236,11 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
 
     public void OnLoseFocus()
     {
-        //Debug.Log("ОУТ фокус");
-        //Highlight(false);
-
-        //if (InteractionUI.Instance)
-        //    InteractionUI.Instance.Hide();
-
+        if (outline != null)
+        {
+            outline.enabled = false;  // выключаем контур
+            outline.EmissionOff();    // выключаем свечение
+        }
         isFocused = false;
 
         if (InteractionUI.Instance)

@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 106958026}
   - component: {fileID: 106958025}
   - component: {fileID: 106958028}
+  - component: {fileID: 106958029}
   m_Layer: 0
   m_Name: DoorMove
   m_TagString: Door
@@ -595,6 +596,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &106958029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106958023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0.3207547, g: 0.38973504, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+  useEmission: 1
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  emissionIntensity: 1.5
 --- !u!1 &128703443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,7 +1553,12 @@ MonoBehaviour:
   handleSpeed: 6
   renderers:
   - {fileID: 1982824340}
-  highlightColor: {r: 0.8000001, g: 0.34117648, b: 0.3254902, a: 0.4392157}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 4
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!65 &403815383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2694,6 +2721,110 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionUI
   interactIcon: {fileID: 351368745}
+--- !u!1 &720241603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720241606}
+  - component: {fileID: 720241605}
+  - component: {fileID: 720241604}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &720241604
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720241603}
+  m_Text: TemplateSciene
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &720241605
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720241603}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &720241606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720241603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.04166, y: 1.28726, z: -9.99547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &746427737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,8 +4346,8 @@ MonoBehaviour:
   doorType: 1
   openAngle: 120
   rotationAxis: {x: 0, y: -1, z: 0}
-  slideDirection: {x: -0.6, y: 0, z: 0}
-  slideDistance: 1
+  slideDirection: {x: -1, y: 0, z: 0}
+  slideDistance: 0.8
   speed: 2
   autoClose: 0
   autoCloseDelay: 3
@@ -4226,7 +4357,12 @@ MonoBehaviour:
   handleSpeed: 6
   renderers:
   - {fileID: 106958026}
-  highlightColor: {r: 0.7960785, g: 0.7725491, b: 0.7725491, a: 0.25882354}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 10
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!65 &1452454788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4442,7 +4578,12 @@ MonoBehaviour:
   handleSpeed: 5
   renderers:
   - {fileID: 1907969626}
-  highlightColor: {r: 0.5707547, g: 0.5707547, b: 0.5707547, a: 1}
+  outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
+  outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
+  outlineWidth: 10
+  outlineAppearSpeed: 10
+  pulseAmplitude: 0.5
+  pulseSpeed: 3
 --- !u!1 &1528387799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5411,6 +5552,7 @@ GameObject:
   - component: {fileID: 1907969627}
   - component: {fileID: 1907969626}
   - component: {fileID: 1907969625}
+  - component: {fileID: 1907969628}
   m_Layer: 0
   m_Name: DoorMesh
   m_TagString: Untagged
@@ -5511,6 +5653,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907969623}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1907969628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907969623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+  useEmission: 1
+  emissionColor: {r: 0.86666673, g: 0, b: 0.050980397, a: 1}
+  emissionIntensity: 0.5
 --- !u!1 &1951479670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,6 +5878,7 @@ GameObject:
   - component: {fileID: 1982824340}
   - component: {fileID: 1982824339}
   - component: {fileID: 1982824338}
+  - component: {fileID: 1982824342}
   m_Layer: 0
   m_Name: DoorMove
   m_TagString: Door
@@ -5843,6 +6007,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982824336}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1982824342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982824336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca445ad532a640a49a0b09cd9edb9741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.7924528, b: 0.177291, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+  useEmission: 1
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  emissionIntensity: 0.5
 --- !u!1 &1985381368
 GameObject:
   m_ObjectHideFlags: 0
@@ -6350,3 +6535,4 @@ SceneRoots:
   - {fileID: 1674808873}
   - {fileID: 962034338}
   - {fileID: 1498393674}
+  - {fileID: 720241606}

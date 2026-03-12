@@ -74,7 +74,17 @@ public class Outline : MonoBehaviour {
   [SerializeField, HideInInspector]
   private List<ListVector3> bakeValues = new List<ListVector3>();
 
+  
+  //  Настройка подсветки объекта
+  [Header("Emission Highlight")]
+  public bool useEmission = true;
+  public Color emissionColor = Color.yellow;
+  public float emissionIntensity = 1.5f;
+
+
   private Renderer[] renderers;
+  Material[][] materials;
+
   private Material outlineMaskMaterial;
   private Material outlineFillMaterial;
 
@@ -134,7 +144,27 @@ public class Outline : MonoBehaviour {
     }
   }
 
-  void Update() {
+    void Start()
+    {
+        //  Инициализация для подсветки объектов
+        renderers = GetComponentsInChildren<Renderer>();
+
+        materials = new Material[renderers.Length][];
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            materials[i] = renderers[i].materials;
+
+            foreach (Material m in materials[i])
+            {
+                m.EnableKeyword("_EMISSION");
+            }
+        }
+
+    }
+
+
+    void Update() {
     if (needsUpdate) {
       needsUpdate = false;
 
@@ -311,4 +341,33 @@ public class Outline : MonoBehaviour {
         break;
     }
   }
+
+
+    public void EmissionOn()
+    {
+        if (!useEmission) return;
+
+        foreach (var mats in materials)
+        {
+            foreach (var m in mats)
+            {
+                m.SetColor("_EmissionColor", emissionColor * emissionIntensity);
+            }
+        }
+    }
+    public void EmissionOff()
+    {
+        if (!useEmission) return;
+
+        foreach (var mats in materials)
+        {
+            foreach (var m in mats)
+            {
+                m.SetColor("_EmissionColor", Color.black);
+            }
+        }
+    }
+
+
+
 }

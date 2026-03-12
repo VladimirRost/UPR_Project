@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "U:\\UNITY\\TEMPLATE_WEB_GL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\outline\\outlinefill.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\outline\\outlinefill.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +15,12 @@
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\outline\\outline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,33 +38,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OutlineFill.shader",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\OutlineFill.shader",
-              "RelativeDocumentMoniker": "Assets\\Outline\\OutlineFill.shader",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\OutlineFill.shader",
-              "RelativeToolTip": "Assets\\Outline\\OutlineFill.shader",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-03-11T18:36:38.003Z",
+              "DocumentIndex": 3,
+              "Title": "IInteractable.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T12:41:51.238Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Outline.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\Outline.cs",
               "RelativeDocumentMoniker": "Assets\\Outline\\Outline.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\Outline.cs",
               "RelativeToolTip": "Assets\\Outline\\Outline.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAkwD4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAmwF8BAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-11T17:31:41.931Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "InteractionUI.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
@@ -77,28 +77,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "InteractiveDoor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAwPcAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAYwIAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T13:23:26.657Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "PlayerInteractor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwCMAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAgwFcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T08:26:40.467Z"
+              "WhenOpened": "2026-03-09T08:26:40.467Z",
+              "EditorCaption": ""
             }
           ]
         }

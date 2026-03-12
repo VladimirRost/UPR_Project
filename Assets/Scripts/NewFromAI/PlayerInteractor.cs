@@ -85,7 +85,7 @@ public class PlayerInteractor : MonoBehaviour
                     currentInteractable.OnFocus();
                 }
 
-                Debug.Log("Объект под прицелом");
+               // Debug.Log("Объект под прицелом");
 
                 return;
             }
