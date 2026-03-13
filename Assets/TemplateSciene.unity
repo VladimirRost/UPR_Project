@@ -487,8 +487,7 @@ Transform:
   m_LocalPosition: {x: 0.517, y: 1.018, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 0.05}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1281042111}
+  m_Children: []
   m_Father: {fileID: 1452454786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &106958025
@@ -716,15 +715,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188224262}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.435, y: 0.0371, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.95200014, y: 1.0922, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 675961565}
   - {fileID: 1349031062}
   - {fileID: 1951479671}
-  m_Father: {fileID: 1982824337}
+  m_Father: {fileID: 403815381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206686814
 GameObject:
@@ -1525,6 +1524,7 @@ Transform:
   m_Children:
   - {fileID: 1652003325}
   - {fileID: 1982824337}
+  - {fileID: 188224263}
   m_Father: {fileID: 1400515572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &403815382
@@ -1548,9 +1548,9 @@ MonoBehaviour:
   autoClose: 1
   autoCloseDelay: 3
   doorHandle: {fileID: 188224263}
-  handleAxis: {x: 1, y: 0, z: 0}
-  handleAngle: -40
-  handleSpeed: 6
+  handleAxis: {x: 0, y: 0, z: 1}
+  handleAngle: 40
+  handleSpeed: 10
   renderers:
   - {fileID: 1982824340}
   outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
@@ -3817,15 +3817,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281042110}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.435, y: 0.0371, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.95200014, y: 1.0922, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1119998527}
   - {fileID: 352072105}
   - {fileID: 1471615670}
-  m_Father: {fileID: 106958024}
+  m_Father: {fileID: 1452454786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284597324
 GameObject:
@@ -4067,7 +4067,7 @@ Transform:
   m_GameObject: {fileID: 1341615117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.50159, y: 0.7, z: -9.41}
+  m_LocalPosition: {x: -7.50159, y: 1.4, z: -9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4496,6 +4496,7 @@ Transform:
   m_Children:
   - {fileID: 588691259}
   - {fileID: 106958024}
+  - {fileID: 1281042111}
   m_Father: {fileID: 771442216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1452454787
@@ -4520,8 +4521,8 @@ MonoBehaviour:
   autoCloseDelay: 3
   doorHandle: {fileID: 1281042111}
   handleAxis: {x: 0, y: 0, z: 1}
-  handleAngle: -40
-  handleSpeed: 6
+  handleAngle: 40
+  handleSpeed: 10
   renderers:
   - {fileID: 106958026}
   outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
@@ -4739,12 +4740,12 @@ MonoBehaviour:
   speed: 2
   autoClose: 0
   autoCloseDelay: 3
-  doorHandle: {fileID: 2053507220}
+  doorHandle: {fileID: 0}
   handleAxis: {x: 0, y: 0, z: 1}
   handleAngle: -40
   handleSpeed: 5
   renderers:
-  - {fileID: 1907969626}
+  - {fileID: 0}
   outlineMaskShader: {fileID: 4800000, guid: dbb7296b7b1ac034ca01737405816cf4, type: 3}
   outlineFillShader: {fileID: 4800000, guid: d55e6b553616a4d4485ef0e9ae964d3a, type: 3}
   outlineWidth: 10
@@ -6065,8 +6066,7 @@ Transform:
   m_LocalPosition: {x: 0.517, y: 1.018, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 0.05}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 188224263}
+  m_Children: []
   m_Father: {fileID: 403815381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1982824338

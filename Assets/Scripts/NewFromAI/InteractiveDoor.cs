@@ -47,12 +47,6 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
 
 
 
-
-
-
-
-
-
     private bool isOpen;
 
     private Quaternion closedRotation;
@@ -94,26 +88,19 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
                 Quaternion.AngleAxis(handleAngle, handleAxis);
         }
 
-        if (renderers != null && renderers.Length > 0)   // сохраняем исходный цвет Emission объекта
-        {
-            originalEmission = new Color[renderers.Length];
+        //if (renderers != null && renderers.Length > 0)   // сохраняем исходный цвет Emission объекта
+        //{
+        //    originalEmission = new Color[renderers.Length];
 
-            for (int i = 0; i < renderers.Length; i++)
-            {
-                if (renderers[i].material.HasProperty("_EmissionColor"))
-                {
-                    originalEmission[i] =
-                        renderers[i].material.GetColor("_EmissionColor");
-                }
-
-
-                
-
-            }
-
-            
-
-        }
+        //    for (int i = 0; i < renderers.Length; i++)
+        //    {
+        //        if (renderers[i].material.HasProperty("_EmissionColor"))
+        //        {
+        //            originalEmission[i] =
+        //                renderers[i].material.GetColor("_EmissionColor");
+        //        }
+        //    }
+        //}
 
         outline = GetComponentInChildren<Outline>();  // инициализация контурной подсветки
         if (outline != null)
@@ -162,6 +149,13 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
             }
         }
 
+
+
+        // Поворот ручки  ----------------------------
+
+
+
+        // Предыдущий код
         if (doorHandle)
         {
             Quaternion target = isOpen ? handlePressedRotation : handleStartRotation;
@@ -214,11 +208,7 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
 
     public void OnFocus() 
     {
-        //Debug.Log("Он фокус");
-        //Highlight(true);
-
-        //if (InteractionUI.Instance)
-        //    InteractionUI.Instance.Show();
+       
 
         if (outline != null)
         {
