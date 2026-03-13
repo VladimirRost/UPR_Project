@@ -95,17 +95,27 @@ public class Outline : MonoBehaviour {
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
+        // инициализация материалов
+
+        materials = new Material[renderers.Length][];
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            materials[i] = renderers[i].materials;
+
+            foreach (Material m in materials[i])
+            {
+                m.EnableKeyword("_EMISSION");
+            }
+        }
+
         // Instantiate outline materials
 
         outlineMaskMaterial = new Material(Shader.Find("Custom/Outline Mask"));
         outlineFillMaterial = new Material(Shader.Find("Custom/Outline Fill"));
 
-        // это было в оригинале ->
-        //outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
-        //outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
-
-        outlineMaskMaterial.name = "OutlineMask (Instance)";
-    outlineFillMaterial.name = "OutlineFill (Instance)";
+        outlineMaskMaterial.name = "Outline Mask (Instance)";
+        outlineFillMaterial.name = "Outline Fill (Instance)";
 
     // Retrieve or generate smooth normals
     LoadSmoothNormals();
@@ -146,20 +156,7 @@ public class Outline : MonoBehaviour {
 
     void Start()
     {
-        //  Инициализация для подсветки объектов
-        renderers = GetComponentsInChildren<Renderer>();
 
-        materials = new Material[renderers.Length][];
-
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            materials[i] = renderers[i].materials;
-
-            foreach (Material m in materials[i])
-            {
-                m.EnableKeyword("_EMISSION");
-            }
-        }
 
     }
 
