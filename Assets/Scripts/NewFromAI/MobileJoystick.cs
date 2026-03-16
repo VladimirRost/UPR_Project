@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class MobileJoystick : MonoBehaviour,
+    IDragHandler,
+    IPointerUpHandler,
+    IPointerDownHandler
 {
     public RectTransform background;
     public RectTransform handle;

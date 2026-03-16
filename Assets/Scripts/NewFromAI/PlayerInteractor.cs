@@ -34,12 +34,24 @@ public class PlayerInteractor : MonoBehaviour
     {
 
         CheckInteractable();  // Проверяем взгляд на объект
-        // Проверяем кнопку взаимодействия
-        if (playerController.Input.PlayerActionControl.PressLeftButton.WasPressedThisFrame())
+                              // Проверяем кнопку взаимодействия
+
+
+        //if (playerController.Input.PlayerActionControl.PressLeftButton.WasPressedThisFrame())
+        //{
+        //    TryInteract();
+
+        //}
+        if (playerController.Input.PlayerActionControl.Attack.WasPressedThisFrame())
         {
             TryInteract();
-
         }
+
+        //playerController.Input.PlayerActionControl.
+
+
+
+
     }
 
     void TryInteract()
@@ -100,6 +112,9 @@ public class PlayerInteractor : MonoBehaviour
 
     }
 
-   
+    public void InteractButton()
+    {
+        TryInteract();
+    }
 
 }

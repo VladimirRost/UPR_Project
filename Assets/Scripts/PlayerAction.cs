@@ -181,6 +181,15 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b7e1c8a-5b6b-49e8-b06f-5b86de9bfaa5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -417,23 +426,34 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""74e50b31-a19a-44ea-be5b-42e5a38cd713"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PressLeftButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e1ca5b35-b18f-48e3-bbcf-d4fdf3105915"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PressRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""391690be-6813-4ac9-a3bf-d1b95166f95e"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74e50b31-a19a-44ea-be5b-42e5a38cd713"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -454,6 +474,7 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         m_PlayerActionControl_FlyMode = m_PlayerActionControl.FindAction("FlyMode", throwIfNotFound: true);
         m_PlayerActionControl_PressLeftButton = m_PlayerActionControl.FindAction("PressLeftButton", throwIfNotFound: true);
         m_PlayerActionControl_PressRightButton = m_PlayerActionControl.FindAction("PressRightButton", throwIfNotFound: true);
+        m_PlayerActionControl_Attack = m_PlayerActionControl.FindAction("Attack", throwIfNotFound: true);
     }
 
     ~@PlayerClassControl()
@@ -544,6 +565,7 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionControl_FlyMode;
     private readonly InputAction m_PlayerActionControl_PressLeftButton;
     private readonly InputAction m_PlayerActionControl_PressRightButton;
+    private readonly InputAction m_PlayerActionControl_Attack;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerActionControl".
     /// </summary>
@@ -595,6 +617,10 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerActionControl/PressRightButton".
         /// </summary>
         public InputAction @PressRightButton => m_Wrapper.m_PlayerActionControl_PressRightButton;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/Attack".
+        /// </summary>
+        public InputAction @Attack => m_Wrapper.m_PlayerActionControl_Attack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -651,6 +677,9 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @PressRightButton.started += instance.OnPressRightButton;
             @PressRightButton.performed += instance.OnPressRightButton;
             @PressRightButton.canceled += instance.OnPressRightButton;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         /// <summary>
@@ -692,6 +721,9 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @PressRightButton.started -= instance.OnPressRightButton;
             @PressRightButton.performed -= instance.OnPressRightButton;
             @PressRightButton.canceled -= instance.OnPressRightButton;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         /// <summary>
@@ -802,5 +834,12 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPressRightButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

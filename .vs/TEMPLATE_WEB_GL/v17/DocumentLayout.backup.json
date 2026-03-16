@@ -3,32 +3,48 @@
   "WorkspaceRootPath": "U:\\UNITY\\TEMPLATE_WEB_GL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\touchlook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\touchlook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\mobileplatformdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\mobileplatformdetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\mobilejoystick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\mobilejoystick.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\mobilemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\mobilemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\devicetypedetector\\devicetypedetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\devicetypedetector\\devicetypedetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\outline\\outline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\outline\\outline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\cameralook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\cameralook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\mobilelookzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\mobilelookzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\desktopinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\desktopinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\mobileinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\mobileinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\platforminputswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\platforminputswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,77 +62,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TouchLook.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\TouchLook.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\TouchLook.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\TouchLook.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\TouchLook.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "DeviceTypeDetector.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\DeviceTypeDetector\\DeviceTypeDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\DeviceTypeDetector\\DeviceTypeDetector.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\DeviceTypeDetector\\DeviceTypeDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\DeviceTypeDetector\\DeviceTypeDetector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T13:42:13.117Z",
+              "WhenOpened": "2026-03-16T09:33:26.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MobilePlatformDetector.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobilePlatformDetector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\MobilePlatformDetector.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobilePlatformDetector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\MobilePlatformDetector.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T17:09:44.541Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MobileJoystick.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileJoystick.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\MobileJoystick.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileJoystick.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\MobileJoystick.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Title": "MobileMovement.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\MobileMovement.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\MobileMovement.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T13:37:04.323Z",
+              "WhenOpened": "2026-03-15T17:08:09.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IInteractable.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T12:41:51.238Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Outline.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\Outline.cs",
-              "RelativeDocumentMoniker": "Assets\\Outline\\Outline.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Outline\\Outline.cs",
-              "RelativeToolTip": "Assets\\Outline\\Outline.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAAwGEAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T17:31:41.931Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "InteractionUI.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractionUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T17:38:49.344Z"
+              "WhenOpened": "2026-03-15T16:57:30.835Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "InteractiveDoor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAwGYAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T13:23:26.657Z"
+              "WhenOpened": "2026-03-15T15:40:30.458Z"
             },
             {
               "$type": "Document",
@@ -126,9 +131,70 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAwFcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwC4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T08:26:40.467Z"
+              "WhenOpened": "2026-03-15T15:40:01.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MobileInput.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileInput.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\MobileInput.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileInput.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\MobileInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:16:58.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MobileLookZone.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileLookZone.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\MobileLookZone.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\MobileLookZone.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\MobileLookZone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:16:02.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CameraLook.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\CameraLook.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\CameraLook.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\CameraLook.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\CameraLook.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:13:42.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DesktopInput.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\DesktopInput.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\DesktopInput.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\DesktopInput.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\DesktopInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:08:29.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlatformInputSwitcher.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlatformInputSwitcher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlatformInputSwitcher.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlatformInputSwitcher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlatformInputSwitcher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:05:15.769Z"
             }
           ]
         }
