@@ -16,7 +16,11 @@ public class MobilePlatformDetector : MonoBehaviour
         {
             Debug.Log("Это мобильное устройство!");
             mobileUI.SetActive(true);
+            
+            
             mobileMovement.enabled = true;
+            
+            
             //desktopMovement.enabled = false;
         }
         else

@@ -1,3 +1,4 @@
+﻿
 using UnityEngine;
 
 public class MobileMovement : MonoBehaviour
@@ -7,9 +8,20 @@ public class MobileMovement : MonoBehaviour
 
     CharacterController controller;
 
+
     void Start()
     {
+
         controller = GetComponent<CharacterController>();
+
+        Debug.Log("Joystick = " + joystick);
+        Debug.Log("Controller = " + controller);
+
+
+
+        controller = GetComponent<CharacterController>();
+
+
     }
 
     void Update()
@@ -19,5 +31,6 @@ public class MobileMovement : MonoBehaviour
             transform.forward * joystick.Vertical;
 
         controller.Move(move * speed * Time.deltaTime);
+
     }
 }

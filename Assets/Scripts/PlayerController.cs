@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿
+
+
+//Рабочий вариант!!!!!!  НИЖЕ  -----------------------------------------
+
+using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -7,11 +12,14 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool IsFlyMode => _flyMode;
+
     [Header("Objects")]
     [SerializeField] private CharacterController _Character_controller;
     //[SerializeField] private Transform _Camera_transfomm;
     [SerializeField] private Transform _Check_ground; // проверка касания земли 
     [SerializeField] private LayerMask _Ground_mask;
+    [SerializeField] private GameObject MobileWindow;
 
     [Header("Settings")]
     [SerializeField] private float _check_radius_sphere = 0.2f;
@@ -57,18 +65,24 @@ public class PlayerController : MonoBehaviour
     private float pitch;
 
     private PlayerClassControl input;
-   
-    
+
+
     // Открытие управления для дпугих скриптов   ---------------------------------
     public PlayerClassControl Input => input;
     //    ---------------------------------
 
-  
+
+    // Добавляем управление с джойстика
+    public MobileJoystick mobileJoystick;
+
+
+
+
 
     private void Awake()
     {
-       input = new PlayerClassControl();
-       input.Enable();
+        input = new PlayerClassControl();
+        input.Enable();
     }
 
     private void OnEnable()
@@ -87,7 +101,7 @@ public class PlayerController : MonoBehaviour
     // Поворот игрока с камерой
     private void Rotate()
     {
-            Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
+        Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
 
         //float deltaX = mouseDelta.x / Screen.width*10000f;
         //float deltaY = mouseDelta.y / Screen.height*10000f;
@@ -96,31 +110,60 @@ public class PlayerController : MonoBehaviour
         float deltaY = mouseDelta.y;
 
         yaw += deltaX * _sensitivity_mouse * Time.deltaTime;
-            pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
-            pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
-         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
-       // transform.localEulerAngles = new Vector3(pitch, yaw, 0f);
+        pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+        transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+        // transform.localEulerAngles = new Vector3(pitch, yaw, 0f);
     }
 
     // Перемещение игрока
     private void Move()
     {
-        Vector2 movekey = input.PlayerActionControl.Move.ReadValue<Vector2>();
-        float temMoveX = movekey.x; // +1/-1   влево в право
-        float temMoveY = movekey.y;// +1/-1   вперёд назад
-                                //    Debug.Log("MoveX " + temMoveX);
-                                //    Debug.Log("MoveY " + temMoveY);
-        move = transform.forward * temMoveY + transform.right * temMoveX;
 
-        if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX!=0 || temMoveY!=0)) //проверка на ускорение
+        Vector2 movekey;
+        
+        if (mobileJoystick != null && MobileWindow.activeInHierarchy)  // Если мобильная версия - джойстик не работает
         {
-            _Character_controller.Move(move * _speed_run * Time.deltaTime);
            
+            movekey = new Vector2(mobileJoystick.Horizontal, mobileJoystick.Vertical);
         }
         else
         {
-            _Character_controller.Move(move * +_speed_walk * Time.deltaTime);
-          
+            movekey = input.PlayerActionControl.Move.ReadValue<Vector2>();
+        }
+
+
+
+
+
+        float temMoveX = movekey.x; // +1/-1   влево в право
+        float temMoveY = movekey.y;// +1/-1   вперёд назад
+                                   //    Debug.Log("MoveX " + temMoveX);
+                                   //    Debug.Log("MoveY " + temMoveY);
+
+
+        //move = transform.forward * temMoveY + transform.right * temMoveX;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        move = forward * temMoveY + right * temMoveX;
+        if (!_flyMode)
+        {
+            move.y = 0;
+        }
+        move.Normalize();
+
+
+
+
+        if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX != 0 || temMoveY != 0)) //проверка на ускорение
+        {
+            _Character_controller.Move(move * _speed_run * Time.deltaTime);
+
+        }
+        else
+        {
+            //_Character_controller.Move(move * +_speed_walk * Time.deltaTime);
+            _Character_controller.Move(move * _speed_walk * Time.deltaTime);
         }
 
 
@@ -129,7 +172,7 @@ public class PlayerController : MonoBehaviour
     private void Velocity()  //  Физика
     {
         isGrounded = Physics.CheckSphere(_Check_ground.transform.position, _check_radius_sphere, _Ground_mask); // Создаём сферу невидимую с радиусом и если она соприкачается с землёй - true
-        if (isGrounded && velosity.y <0)
+        if (isGrounded && velosity.y < 0)
         {
             velosity.y = -2f;
         }
@@ -141,13 +184,16 @@ public class PlayerController : MonoBehaviour
         _Character_controller.Move(velosity * Time.deltaTime);
     }
 
-    private void FlyModeON()   
+    private void FlyModeON()
     {
+
+        Debug.Log("Полёт");
         _flyMode = true;
         _gravity = 0;
     }
-    private void FlyModeOff ()
+    private void FlyModeOff()
     {
+        Debug.Log("Ходьба");
         _flyMode = false;
         _gravity = temp;
     }
@@ -155,22 +201,22 @@ public class PlayerController : MonoBehaviour
     public void Switch_FlyMode() // Стартует от кнопки
     {
 
-            if (_flyMode == false)
-            {
-                FlyModeON();
-            textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
+        if (_flyMode == false)
+        {
+            FlyModeON();
+            //textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
             textComponentButton.text = textButtonFlyOFF;
         }
 
-            else if (_flyMode == true)
-            {
-                FlyModeOff();
-            textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
+        else if (_flyMode == true)
+        {
+            FlyModeOff();
+            //textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
             textComponentButton.text = textButtonFlyON;
         }
 
     }
-  
+
     public void StartGame() //нажата кнопа Начать
     {
         _start_button = true;
@@ -194,7 +240,7 @@ public class PlayerController : MonoBehaviour
     {
         _start_button = false;
         PanelExitWindow.SetActive(true);
-      
+
     }
 
     public void F_SunPosistion() // Управление движением солнца
@@ -209,22 +255,27 @@ public class PlayerController : MonoBehaviour
         Quaternion rot = Quaternion.Euler(new Vector3(angleX, 0f, 0f));
         SunDiraction.transform.rotation = rot;
 
-       
+
     }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // установка названия кнопки ХОДЬБА
 
-   
+
+
+        Debug.Log(MobileWindow.activeInHierarchy);
+
+        // установка названия кнопки ХОДЬБА
+        textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
+
 
         PanelExitWindow.SetActive(false); // Убираем панель выхода
 
         textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>(); // Считываем компонент текст с кнопки режима
         textComponentButton.text = textButtonFlyON;
-        
+
         _start_button = false;
         _flyMode = false;
         temp = _gravity;
@@ -234,7 +285,7 @@ public class PlayerController : MonoBehaviour
         yaw = angles.y;
         pitch = angles.x;
 
-        Cursor.lockState = CursorLockMode.None; 
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
     }
@@ -256,7 +307,7 @@ public class PlayerController : MonoBehaviour
 
 
             if (!_flyMode) Velocity(); // Физика работает только если нет режима полётов
-           
+
 
 
         }
