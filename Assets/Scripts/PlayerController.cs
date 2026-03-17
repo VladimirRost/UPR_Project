@@ -1,9 +1,4 @@
-﻿
-
-
-//Рабочий вариант!!!!!!  НИЖЕ  -----------------------------------------
-
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -19,35 +14,49 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private Transform _Camera_transfomm;
     [SerializeField] private Transform _Check_ground; // проверка касания земли 
     [SerializeField] private LayerMask _Ground_mask;
-    [SerializeField] private GameObject MobileWindow;
-
-    [Header("Settings")]
-    [SerializeField] private float _check_radius_sphere = 0.2f;
-    [SerializeField] private float _gravity = -14f;
-    [SerializeField] private float _speed_walk = 4f;
-    [SerializeField] private float _speed_run = 7f;
-    [SerializeField] private float _jump_height = 1f;
-    [SerializeField] public float minPitch = -89f;
-    [SerializeField] public float maxPitch = 89f;
-    [SerializeField] private float _carrentPositionSun; //Исходная позиция солнца (0 - 210) утро - день - вечер - ночь
-
-    [Range(1f, 100f)]
-    [SerializeField] private float _sensitivity_mouse;
-
-
-
     public GameObject PanelStartWindow; // Стартовая панель с инструкиями
     public GameObject PanelExitWindow; // Выходная панель с инструкиями
     public Button ButtonSwitchFly;  //  Кнопка смены режима полёт / ходьба
     public string textButtonFlyON = "ПОЛЁТ";
     public string textButtonFlyOFF = "ХОДЬБА";
     private Text textComponentButton; // компонент доступка до текста кнопки
-
     public Button ButtonExit; //Кнопка выхода
     public string webAddress = "https://veter64.ru/Visualization.html";
-
     public GameObject SunDiraction; // управление солнцем
     public Scrollbar ScrollRectSunPosition; // Объект прокрутки
+    // Добавляем управление с джойстика
+    public MobileJoystick mobileJoystick;
+    [SerializeField] private GameObject MobileWindow;
+
+    [Header("Settings")]
+    [SerializeField] private float _check_radius_sphere = 0.2f;
+    [SerializeField] private float _gravity = -14f;
+    [SerializeField] public float minPitch = -89f;
+    [SerializeField] public float maxPitch = 89f;
+    [SerializeField] private float _carrentPositionSun; //Исходная позиция солнца (0 - 210) утро - день - вечер - ночь
+
+    [Header("Movement smoothing")]
+    [SerializeField] private float _acceleration = 6f;
+    [SerializeField] private float _deceleration = 10f;
+    Vector3 _currentVelocity;
+    [SerializeField] private float _speed_walk = 4f;
+    [SerializeField] private float _speed_run = 7f;
+    [SerializeField] private float _jump_height = 1f;
+
+    [Header("Look smoothing")]
+    [SerializeField] private float _lookSmooth = 12f;
+
+    private float _targetYaw;
+    private float _targetPitch;
+
+    [Range(1f, 100f)]
+    [SerializeField] private float _sensitivity_mouse;
+
+
+
+
+
+
 
 
 
@@ -64,6 +73,8 @@ public class PlayerController : MonoBehaviour
     private float yaw;
     private float pitch;
 
+
+
     private PlayerClassControl input;
 
 
@@ -72,8 +83,7 @@ public class PlayerController : MonoBehaviour
     //    ---------------------------------
 
 
-    // Добавляем управление с джойстика
-    public MobileJoystick mobileJoystick;
+
 
 
 
@@ -101,19 +111,31 @@ public class PlayerController : MonoBehaviour
     // Поворот игрока с камерой
     private void Rotate()
     {
-        Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
 
-        //float deltaX = mouseDelta.x / Screen.width*10000f;
-        //float deltaY = mouseDelta.y / Screen.height*10000f;
+        Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
 
         float deltaX = mouseDelta.x;
         float deltaY = mouseDelta.y;
 
-        yaw += deltaX * _sensitivity_mouse * Time.deltaTime;
-        pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
-        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+        _targetYaw += deltaX * _sensitivity_mouse * Time.deltaTime;
+        _targetPitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
+        _targetPitch = Mathf.Clamp(_targetPitch, minPitch, maxPitch);
+
+        yaw = Mathf.Lerp(yaw, _targetYaw, _lookSmooth * Time.deltaTime);
+        pitch = Mathf.Lerp(pitch, _targetPitch, _lookSmooth * Time.deltaTime);
+
         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
-        // transform.localEulerAngles = new Vector3(pitch, yaw, 0f);
+
+
+        //Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
+
+        //float deltaX = mouseDelta.x;
+        //float deltaY = mouseDelta.y;
+
+        //yaw += deltaX * _sensitivity_mouse * Time.deltaTime;
+        //pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
+        //pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+        //transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
     }
 
     // Перемещение игрока
@@ -132,17 +154,9 @@ public class PlayerController : MonoBehaviour
             movekey = input.PlayerActionControl.Move.ReadValue<Vector2>();
         }
 
-
-
-
-
         float temMoveX = movekey.x; // +1/-1   влево в право
         float temMoveY = movekey.y;// +1/-1   вперёд назад
-                                   //    Debug.Log("MoveX " + temMoveX);
-                                   //    Debug.Log("MoveY " + temMoveY);
-
-
-        //move = transform.forward * temMoveY + transform.right * temMoveX;
+  
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
         move = forward * temMoveY + right * temMoveX;
@@ -152,20 +166,26 @@ public class PlayerController : MonoBehaviour
         }
         move.Normalize();
 
+        //  Блок плавного движения Начало
+        float targetSpeed;
 
-
-
-        if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX != 0 || temMoveY != 0)) //проверка на ускорение
-        {
-            _Character_controller.Move(move * _speed_run * Time.deltaTime);
-
-        }
+        if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX != 0 || temMoveY != 0))
+            targetSpeed = _speed_run;
         else
-        {
-            //_Character_controller.Move(move * +_speed_walk * Time.deltaTime);
-            _Character_controller.Move(move * _speed_walk * Time.deltaTime);
-        }
+            targetSpeed = _speed_walk;
 
+        Vector3 targetVelocity = move * targetSpeed;
+
+        // плавное ускорение
+        _currentVelocity = Vector3.Lerp(
+            _currentVelocity,
+            targetVelocity,
+            _acceleration * Time.deltaTime
+        );
+
+        _Character_controller.Move(_currentVelocity * Time.deltaTime);
+        
+        //  Блок плавного движения Конец
 
     }
 
@@ -259,13 +279,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
 
 
-        Debug.Log(MobileWindow.activeInHierarchy);
+        //Debug.Log(MobileWindow.activeInHierarchy);
 
         // установка названия кнопки ХОДЬБА
         textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>();
@@ -299,6 +321,8 @@ public class PlayerController : MonoBehaviour
 
             if (input.PlayerActionControl.PressMouseButton.ReadValue<float>() == -1)  // если нажата правая кнопка мышки - Обзор и перемещение (+1 - левая кнопка)
             {
+
+
                 Rotate();
             }
             Move();

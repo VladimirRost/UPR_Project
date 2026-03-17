@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MobileLookZone : MonoBehaviour,
@@ -9,6 +9,8 @@ public class MobileLookZone : MonoBehaviour,
     public CameraLook cameraLook;
 
     bool isDragging;
+
+    public float sensitivity = 1.5f; // усиление движения
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -22,11 +24,9 @@ public class MobileLookZone : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
-        
         if (!isDragging) return;
-        
-       // Debug.Log("Look delta: " + eventData.delta);
-        
-        cameraLook.Look(eventData.delta);
+        if (cameraLook == null) return;
+
+        cameraLook.Look(eventData.delta * sensitivity);
     }
 }

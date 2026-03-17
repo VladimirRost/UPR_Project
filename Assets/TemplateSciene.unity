@@ -2229,7 +2229,6 @@ GameObject:
   - component: {fileID: 562446055}
   - component: {fileID: 562446057}
   - component: {fileID: 562446056}
-  - component: {fileID: 562446058}
   m_Layer: 5
   m_Name: LookZone
   m_TagString: Untagged
@@ -2270,7 +2269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.039215688, b: 0.039215688, a: 0}
+  m_Color: {r: 0.5613208, g: 0.15886438, b: 0.15886438, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2295,19 +2294,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562446054}
   m_CullTransparentMesh: 1
---- !u!114 &562446058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562446054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59515f52bcb136440a3cf9190e27d1a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MobileLookZone
-  cameraLook: {fileID: 1423120316}
 --- !u!1 &588691258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,6 +2424,8 @@ GameObject:
   - component: {fileID: 606847010}
   - component: {fileID: 606847012}
   - component: {fileID: 606847013}
+  - component: {fileID: 606847015}
+  - component: {fileID: 606847014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2622,7 +2610,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileMovement
   joystick: {fileID: 1286435174}
-  speed: 3
+  speed: 1
+  acceleration: 4
+  joystickPower: 0.1
+  responseCurve: 5
+--- !u!114 &606847014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606847001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59515f52bcb136440a3cf9190e27d1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobileLookZone
+  cameraLook: {fileID: 606847015}
+  sensitivity: 1
+--- !u!114 &606847015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606847001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1484f59e0aee34c8e40a9567bbab47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraLook
+  cameraPivot: {fileID: 1423120315}
+  sensitivity: 20
+  smooth: 5
 --- !u!1 &675961564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,7 +4872,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423120315}
-  - component: {fileID: 1423120316}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -4876,21 +4895,6 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 606847005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1423120316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423120314}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1484f59e0aee34c8e40a9567bbab47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraLook
-  player: {fileID: 606847005}
-  sensitivity: 0.15
-  smoothTime: 0.05
 --- !u!1 &1452454785
 GameObject:
   m_ObjectHideFlags: 0
