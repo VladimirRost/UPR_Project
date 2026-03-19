@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using TMPro;
 using Unity.VisualScripting;
-using UnityEngine.InputSystem;
-using UnityEngine.Windows;
+using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private Transform _Camera_transfomm;
     [SerializeField] private Transform _Check_ground; // проверка касания земли 
     [SerializeField] private LayerMask _Ground_mask;
+    public GameObject PanelChangeLight; // Панель с режимами освещения
     public GameObject PanelStartWindow; // Стартовая панель с инструкиями
     public GameObject PanelExitWindow; // Выходная панель с инструкиями
     public Button ButtonSwitchFly;  //  Кнопка смены режима полёт / ходьба
@@ -21,6 +23,11 @@ public class PlayerController : MonoBehaviour
     public string textButtonFlyOFF = "ХОДЬБА";
     private Text textComponentButton; // компонент доступка до текста кнопки
     public Button ButtonExit; //Кнопка выхода
+    public Button ButtonSky; // Кнопка неба
+    public Button ButtonSunOnly; // Кнопка солнца
+    public Button ButtonNone; // Кнопка нейтрали
+    public Button ButtonDark; // Кнопка темноты
+    
     public string webAddress = "https://veter64.ru/Visualization.html";
     public GameObject SunDiraction; // управление солнцем
     public Scrollbar ScrollRectSunPosition; // Объект прокрутки
@@ -52,7 +59,49 @@ public class PlayerController : MonoBehaviour
     [Range(1f, 100f)]
     [SerializeField] private float _sensitivity_mouse;
 
+    
+    // --------------------------------------------------------------------------------------------------------------
+    
+    [Header("Day/Night System")]
 
+    // Skybox
+    [SerializeField] private float _skyMinExposure = 0.2f;
+    [SerializeField] private float _skyMaxExposure = 1.3f;
+
+    // Ambient
+    [SerializeField] private float _ambientMin = 0.1f;
+    [SerializeField] private float _ambientMax = 1f;
+
+    // Sun Light
+    [SerializeField] private Light _sunLight;
+    [SerializeField] private float _sunMinIntensity = 0f;
+    [SerializeField] private float _sunMaxIntensity = 1.2f;
+
+    // Цвет солнца
+    [SerializeField] private Gradient _sunColor;
+
+    [SerializeField] private GameObject SunVisual;
+
+    public enum BackgroundMode
+    {
+        Skybox,
+        SunOnly,
+        Neutral,
+        Dark
+    }
+
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private Color _neutralColor = new Color(0.5f, 0.5f, 0.5f);
+    [SerializeField] private Color _darkColor = new Color(0.02f, 0.02f, 0.03f);
+
+    private BackgroundMode _currentMode = BackgroundMode.Skybox; //Режим skyBox по умолчанию
+    private Material _originalSkybox; // Сохранение skybox
+
+
+    [SerializeField] private Text _buttonSkyText;
+    [SerializeField] private Text _buttonNeutralText;
+    [SerializeField] private Text _buttonDarkText;
+    [SerializeField] private Text _buttonSunOnlyText;
 
 
 
@@ -241,6 +290,7 @@ public class PlayerController : MonoBehaviour
     {
         _start_button = true;
         PanelStartWindow.SetActive(false); // убираем панель старта
+        PanelChangeLight.SetActive(true);
 
     }
 
@@ -263,29 +313,139 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void F_SunPosistion() // Управление движением солнца
+    public void F_SunPosistion()
     {
-        // Получаем текущее значение Slider'а (от 0 до 1)
-        float normalizedValue = ScrollRectSunPosition.value;
-
-        // Преобразуем нормализованное значение в угол вращения (пример: диапазон от -90° до 90° градусов)
-        float angleX = Mathf.Lerp(0f, 210f, normalizedValue);
-
-        // Преобразование в мировые координаты
-        Quaternion rot = Quaternion.Euler(new Vector3(angleX, 0f, 0f));
-        SunDiraction.transform.rotation = rot;
 
 
+
+
+        float t = ScrollRectSunPosition.value;
+
+        float smoothT = Mathf.SmoothStep(0f, 1f, t);
+
+        // вращение солнца
+        float angleX = Mathf.Lerp(0f, 210f, t);
+        SunDiraction.transform.rotation = Quaternion.Euler(angleX, 0f, 0f);
+
+        // высота солнца
+        float sunHeight = Mathf.Clamp01(Mathf.Sin(t * Mathf.PI));
+
+        // солнце всегда работает
+        _sunLight.intensity = Mathf.Lerp(_sunMinIntensity, _sunMaxIntensity, sunHeight);
+        _sunLight.color = _sunColor.Evaluate(t);
+
+        Vector3 dir = SunDiraction.transform.forward;
+        SunVisual.transform.position = -dir * 100f; // расстояние подбери (например 50–500)
+        SunVisual.transform.position = _mainCamera.transform.position - dir * 100f;
+        SunVisual.transform.rotation = SunDiraction.transform.rotation;
+
+        // 🔥 РАЗДЕЛЕНИЕ РЕЖИМОВ
+        switch (_currentMode)
+        {
+            case BackgroundMode.Skybox:
+                if (RenderSettings.skybox != null)
+                {
+                    RenderSettings.skybox.SetFloat("_Exposure",
+                        Mathf.Lerp(_skyMinExposure, _skyMaxExposure, sunHeight));
+                }
+
+                RenderSettings.ambientIntensity =
+                    Mathf.Lerp(_ambientMin, _ambientMax, sunHeight);
+
+                DynamicGI.UpdateEnvironment();
+                break;
+
+            case BackgroundMode.SunOnly:
+                RenderSettings.ambientIntensity = 0.6f;
+                break;
+
+            case BackgroundMode.Neutral:
+                RenderSettings.ambientIntensity = 0.7f;
+                break;
+
+            case BackgroundMode.Dark:
+                RenderSettings.ambientIntensity = 0.2f;
+                break;
+
+
+        }
     }
 
+    public void SetBackgroundMode(int modeIndex)  // Переключение режимов освещения
+    {
+        _currentMode = (BackgroundMode)modeIndex;
 
+        switch (_currentMode)
+        {
+            case BackgroundMode.Skybox:
+
+                _mainCamera.clearFlags = CameraClearFlags.Skybox;
+
+                // ВОССТАНАВЛИВАЕМ skybox
+                if (RenderSettings.skybox == null)
+                    RenderSettings.skybox = _originalSkybox;
+                SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                Debug.Log("Режим SkyBox");
+                break;
+
+            case BackgroundMode.SunOnly:
+
+                _mainCamera.clearFlags = CameraClearFlags.SolidColor;
+                _mainCamera.backgroundColor = new Color(0.75f, 0.8f, 0.9f);
+
+                
+                SunVisual.SetActive(true);   // 👈 включаем диск солнца
+
+                RenderSettings.skybox = null;
+
+                Debug.Log("Режим SunOnly");
+                break;
+
+            case BackgroundMode.Neutral:
+                _mainCamera.clearFlags = CameraClearFlags.SolidColor;
+                _mainCamera.backgroundColor = _neutralColor;
+                SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                Debug.Log("Режим None");
+                break;
+
+            case BackgroundMode.Dark:
+                _mainCamera.clearFlags = CameraClearFlags.SolidColor;
+                _mainCamera.backgroundColor = _darkColor;
+                SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                Debug.Log("Режим Dark");
+
+                break;
+
+
+        }
+        DynamicGI.UpdateEnvironment();
+        UpdateButtons(); // Обновляем свечения кнопок
+    }
+
+    private void UpdateButtons() // изменение цвета кнопок
+    {
+        _buttonSkyText.color = (_currentMode == BackgroundMode.Skybox) ? Color.white : Color.gray;
+        _buttonNeutralText.color = (_currentMode == BackgroundMode.Neutral) ? Color.white : Color.gray;
+        _buttonDarkText.color = (_currentMode == BackgroundMode.Dark) ? Color.white : Color.gray;
+        _buttonSunOnlyText.color = (_currentMode == BackgroundMode.SunOnly) ? Color.white : Color.gray;
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
+        SunVisual.SetActive(false);
+        Vector3 _temSun = SunVisual.transform.position;
+        _temSun.y = SunDiraction.transform.position.y * 10f; // размещение солнца
+        SunVisual.transform.position = _temSun;
 
+
+        _originalSkybox = RenderSettings.skybox;  // Сохраняем skybox
+
+
+
+        UpdateButtons();
 
         //Debug.Log(MobileWindow.activeInHierarchy);
 
@@ -294,6 +454,9 @@ public class PlayerController : MonoBehaviour
 
 
         PanelExitWindow.SetActive(false); // Убираем панель выхода
+        PanelChangeLight.SetActive(false); //Убираем панел с режимами освещения
+
+
 
         textComponentButton = ButtonSwitchFly.GetComponentInChildren<Text>(); // Считываем компонент текст с кнопки режима
         textComponentButton.text = textButtonFlyON;
