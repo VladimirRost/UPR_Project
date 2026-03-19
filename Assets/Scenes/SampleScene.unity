@@ -2449,6 +2449,8 @@ MonoBehaviour:
   _sensitivity_mouse: 5
   _skyMinExposure: 0.2
   _skyMaxExposure: 1.3
+  _proceduralSkyboxMaterial: {fileID: 2100000, guid: 14af2970cd8f13e45a1b4a2241b19a8b, type: 2}
+  _nightSkyboxMaterial: {fileID: 2100000, guid: 2d056ac30ecc9e542b26e06133f23602, type: 2}
   _ambientMin: 0.1
   _ambientMax: 1
   _sunLight: {fileID: 410087040}
@@ -2487,7 +2489,6 @@ MonoBehaviour:
   SunVisual: {fileID: 1381813213}
   _mainCamera: {fileID: 330585545}
   _neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _darkColor: {r: 0.02, g: 0.02, b: 0.03, a: 1}
   _buttonSkyText: {fileID: 442367571}
   _buttonNeutralText: {fileID: 1313227719}
   _buttonDarkText: {fileID: 1689080556}
@@ -4755,7 +4756,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DARK
+  m_Text: NIGHT
 --- !u!222 &1689080557
 CanvasRenderer:
   m_ObjectHideFlags: 0

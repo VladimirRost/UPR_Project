@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     // Skybox
     [SerializeField] private float _skyMinExposure = 0.2f;
     [SerializeField] private float _skyMaxExposure = 1.3f;
+    [SerializeField] private Material _proceduralSkyboxMaterial; // Обычное пустое небо
+    [SerializeField] private Material _nightSkyboxMaterial; // Звёздное небо
 
     // Ambient
     [SerializeField] private float _ambientMin = 0.1f;
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Color _neutralColor = new Color(0.5f, 0.5f, 0.5f);
-    [SerializeField] private Color _darkColor = new Color(0.02f, 0.02f, 0.03f);
+
 
     private BackgroundMode _currentMode = BackgroundMode.Skybox; //Режим skyBox по умолчанию
     private Material _originalSkybox; // Сохранение skybox
@@ -316,9 +318,6 @@ public class PlayerController : MonoBehaviour
     public void F_SunPosistion()
     {
 
-
-
-
         float t = ScrollRectSunPosition.value;
 
         float smoothT = Mathf.SmoothStep(0f, 1f, t);
@@ -356,7 +355,12 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case BackgroundMode.SunOnly:
+                _proceduralSkyboxMaterial.SetFloat("_AtmosphereThickness",
+                Mathf.Lerp(1.5f, 0.8f, sunHeight));
                 RenderSettings.ambientIntensity = 0.6f;
+
+
+
                 break;
 
             case BackgroundMode.Neutral:
@@ -364,7 +368,9 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case BackgroundMode.Dark:
-                RenderSettings.ambientIntensity = 0.2f;
+                _nightSkyboxMaterial.SetFloat("_AtmosphereThickness",
+                Mathf.Lerp(1.5f, 0.8f, sunHeight));
+                RenderSettings.ambientIntensity = 0.6f;
                 break;
 
 
@@ -378,26 +384,27 @@ public class PlayerController : MonoBehaviour
         switch (_currentMode)
         {
             case BackgroundMode.Skybox:
-
                 _mainCamera.clearFlags = CameraClearFlags.Skybox;
-
                 // ВОССТАНАВЛИВАЕМ skybox
-                if (RenderSettings.skybox == null)
-                    RenderSettings.skybox = _originalSkybox;
+                RenderSettings.skybox = _originalSkybox;
+                RenderSettings.fog = false;
                 SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                SunDiraction.SetActive(true);
                 Debug.Log("Режим SkyBox");
                 break;
 
             case BackgroundMode.SunOnly:
 
-                _mainCamera.clearFlags = CameraClearFlags.SolidColor;
-                _mainCamera.backgroundColor = new Color(0.75f, 0.8f, 0.9f);
+                _mainCamera.clearFlags = CameraClearFlags.Skybox;
 
-                
-                SunVisual.SetActive(true);   // 👈 включаем диск солнца
+                RenderSettings.skybox = _proceduralSkyboxMaterial;
+                RenderSettings.fog = true;
+                RenderSettings.fogColor = new Color(0.75f, 0.8f, 0.9f);
+                RenderSettings.fogMode = FogMode.Exponential;
+                RenderSettings.fogDensity = 0.002f;
 
-                RenderSettings.skybox = null;
-
+                SunVisual.SetActive(true);
+                SunDiraction.SetActive(true);
                 Debug.Log("Режим SunOnly");
                 break;
 
@@ -409,9 +416,13 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case BackgroundMode.Dark:
-                _mainCamera.clearFlags = CameraClearFlags.SolidColor;
-                _mainCamera.backgroundColor = _darkColor;
+                _mainCamera.clearFlags = CameraClearFlags.Skybox;
+                RenderSettings.skybox = _nightSkyboxMaterial;
+
+                //_mainCamera.clearFlags = CameraClearFlags.SolidColor;
+                //_mainCamera.backgroundColor = _darkColor;
                 SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                SunDiraction.SetActive(false);
                 Debug.Log("Режим Dark");
 
                 break;
