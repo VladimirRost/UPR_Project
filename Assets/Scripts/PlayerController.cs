@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     // Цвет солнца
     [SerializeField] private Gradient _sunColor;
-
+    [SerializeField] private SunPositionController sunController;
     [SerializeField] private GameObject SunVisual;
 
     private float _lastExposure = -1f;
@@ -335,7 +335,10 @@ public class PlayerController : MonoBehaviour
 
         // вращение солнца
         float angleX = Mathf.Lerp(0f, 210f, t);
-        SunDiraction.transform.rotation = Quaternion.Euler(angleX, 0f, 0f);
+        // SunDiraction.transform.rotation = Quaternion.Euler(angleX, 0f, 0f);
+        sunController.timeOfDay = ScrollRectSunPosition.value * 24f;
+        sunController.UpdateSun();
+
 
         // высота солнца
         float sunHeight = Mathf.Clamp01(Mathf.Sin(t * Mathf.PI));
