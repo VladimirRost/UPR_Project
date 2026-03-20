@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject SunVisual;
 
+    private float _lastExposure = -1f;
+
     public enum BackgroundMode
     {
         Skybox,
@@ -318,7 +320,16 @@ public class PlayerController : MonoBehaviour
     public void F_SunPosistion()
     {
 
+        float _lastT = -1f;
+
         float t = ScrollRectSunPosition.value;
+
+        // 🔥 ВОТ ЭТА ПРОВЕРКА                    Если слайдер не двигаем - сцену не пересчитываем
+        if (Mathf.Abs(_lastT - t) < 0.001f)
+            return;
+
+        _lastT = t;
+
 
         float smoothT = Mathf.SmoothStep(0f, 1f, t);
 
@@ -334,7 +345,7 @@ public class PlayerController : MonoBehaviour
         _sunLight.color = _sunColor.Evaluate(t);
 
         Vector3 dir = SunDiraction.transform.forward;
-        SunVisual.transform.position = -dir * 100f; // расстояние подбери (например 50–500)
+        //SunVisual.transform.position = -dir * 100f; // расстояние подбери (например 50–500)
         SunVisual.transform.position = _mainCamera.transform.position - dir * 100f;
         SunVisual.transform.rotation = SunDiraction.transform.rotation;
 
@@ -344,14 +355,27 @@ public class PlayerController : MonoBehaviour
             case BackgroundMode.Skybox:
                 if (RenderSettings.skybox != null)
                 {
-                    RenderSettings.skybox.SetFloat("_Exposure",
-                        Mathf.Lerp(_skyMinExposure, _skyMaxExposure, sunHeight));
+
+
+                    float newExposure = Mathf.Lerp(_skyMinExposure, _skyMaxExposure, sunHeight);
+
+                    if (Mathf.Abs(_lastExposure - newExposure) > 0.01f)
+                    {
+                        RenderSettings.skybox.SetFloat("_Exposure", newExposure);
+                        _lastExposure = newExposure;
+                    }
+
+                    //--------------------------------
+
+
+                    //RenderSettings.skybox.SetFloat("_Exposure",
+                    //    Mathf.Lerp(_skyMinExposure, _skyMaxExposure, sunHeight));
                 }
 
                 RenderSettings.ambientIntensity =
                     Mathf.Lerp(_ambientMin, _ambientMax, sunHeight);
 
-                DynamicGI.UpdateEnvironment();
+                //DynamicGI.UpdateEnvironment();
                 break;
 
             case BackgroundMode.SunOnly:
@@ -403,7 +427,7 @@ public class PlayerController : MonoBehaviour
                 RenderSettings.fogMode = FogMode.Exponential;
                 RenderSettings.fogDensity = 0.002f;
 
-                SunVisual.SetActive(true);
+                SunVisual.SetActive(false);
                 SunDiraction.SetActive(true);
                 Debug.Log("Режим SunOnly");
                 break;
@@ -412,6 +436,7 @@ public class PlayerController : MonoBehaviour
                 _mainCamera.clearFlags = CameraClearFlags.SolidColor;
                 _mainCamera.backgroundColor = _neutralColor;
                 SunVisual.SetActive(false);   // 👈 выключаем диск солнца
+                SunDiraction.SetActive(false);
                 Debug.Log("Режим None");
                 break;
 
