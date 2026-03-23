@@ -2805,8 +2805,8 @@ MonoBehaviour:
   _carrentPositionSun: 0
   _acceleration: 6
   _deceleration: 8
-  _speed_walk: 4
-  _speed_run: 7
+  _speed_walk: 2
+  _speed_run: 9
   _jump_height: 1
   _lookSmooth: 10
   _sensitivity_mouse: 5
@@ -2923,8 +2923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileMovement
   joystick: {fileID: 1286435174}
-  speed: 1
-  acceleration: 4
+  speed: 0.1
+  acceleration: 2
   joystickPower: 0.1
   responseCurve: 5
 --- !u!114 &606847014
@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileLookZone
   cameraLook: {fileID: 606847015}
-  sensitivity: 1
+  sensitivity: 0.5
 --- !u!114 &606847015
 MonoBehaviour:
   m_ObjectHideFlags: 0
