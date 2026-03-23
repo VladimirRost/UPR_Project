@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public Scrollbar ScrollRectSunPosition; // Объект прокрутки
     // Добавляем управление с джойстика
     public MobileJoystick mobileJoystick;
+
+
     [SerializeField] private GameObject MobileWindow;
 
     [Header("Settings")]
@@ -43,8 +45,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _carrentPositionSun; //Исходная позиция солнца (0 - 210) утро - день - вечер - ночь
 
     [Header("Movement smoothing")]
-    [SerializeField] private float _acceleration = 6f;
-    [SerializeField] private float _deceleration = 10f;
+    [SerializeField] private float _acceleration = 10f;
+    [SerializeField] private float _deceleration = 16f;
     Vector3 _currentVelocity;
     [SerializeField] private float _speed_walk = 4f;
     [SerializeField] private float _speed_run = 7f;
@@ -194,12 +196,10 @@ public class PlayerController : MonoBehaviour
     // Перемещение игрока
     private void Move()
     {
-
         Vector2 movekey;
-        
-        if (mobileJoystick != null && MobileWindow.activeInHierarchy)  // Если мобильная версия - джойстик не работает
+
+        if (mobileJoystick != null && MobileWindow.activeInHierarchy)
         {
-           
             movekey = new Vector2(mobileJoystick.Horizontal, mobileJoystick.Vertical);
         }
         else
@@ -207,38 +207,115 @@ public class PlayerController : MonoBehaviour
             movekey = input.PlayerActionControl.Move.ReadValue<Vector2>();
         }
 
-        float temMoveX = movekey.x; // +1/-1   влево в право
-        float temMoveY = movekey.y;// +1/-1   вперёд назад
-  
+        float temMoveX = movekey.x;
+        float temMoveY = movekey.y;
+
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
-        move = forward * temMoveY + right * temMoveX;
+
         if (!_flyMode)
         {
-            move.y = 0;
+            // ХОДЬБА
+            forward.y = 0;
+            right.y = 0;
+
+            forward.Normalize();
+            right.Normalize();
+
+            move = forward * temMoveY + right * temMoveX;
+            move = Vector3.ClampMagnitude(move, 1f);
         }
-        move.Normalize();
-
-        //  Блок плавного движения Начало
-        float targetSpeed;
-
-        if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX != 0 || temMoveY != 0))
-            targetSpeed = _speed_run;
         else
-            targetSpeed = _speed_walk;
+        {
+            // ПОЛЁТ — куда смотрим, туда летим
+            forward.Normalize();
+            right.Normalize();
+
+            move = forward * temMoveY + right * temMoveX;
+            // ❗ ВАЖНО — без ClampMagnitude
+        }
+
+
+
+        //forward.y = 0;
+        //right.y = 0;
+
+        //forward.Normalize();
+        //right.Normalize();
+
+        //move = forward * temMoveY + right * temMoveX;
+
+        // 🔥 ВОТ ЭТО КЛЮЧЕВОЕ
+        //move = Vector3.ClampMagnitude(move, 1f);
+
+        // скорость
+        float targetSpeed = (input.PlayerActionControl.Boost.IsPressed() && move.magnitude > 0.01f)
+            ? _speed_run
+            : _speed_walk;
 
         Vector3 targetVelocity = move * targetSpeed;
 
-        // плавное ускорение
+        // сглаживание
+        float accel = (move.magnitude > 0.01f) ? _acceleration : _deceleration;
+
         _currentVelocity = Vector3.Lerp(
             _currentVelocity,
             targetVelocity,
-            _acceleration * Time.deltaTime
+            accel * Time.deltaTime
         );
 
         _Character_controller.Move(_currentVelocity * Time.deltaTime);
-        
-        //  Блок плавного движения Конец
+
+
+
+
+
+
+        //Vector2 movekey;
+
+        //if (mobileJoystick != null && MobileWindow.activeInHierarchy)  // Если мобильная версия - джойстик не работает
+        //{
+
+        //    movekey = new Vector2(mobileJoystick.Horizontal, mobileJoystick.Vertical);
+        //}
+        //else
+        //{
+        //    movekey = input.PlayerActionControl.Move.ReadValue<Vector2>();
+        //}
+
+        //float temMoveX = movekey.x; // +1/-1   влево в право
+        //float temMoveY = movekey.y;// +1/-1   вперёд назад
+
+        //Vector3 forward = Camera.main.transform.forward;
+        //Vector3 right = Camera.main.transform.right;
+        //move = forward * temMoveY + right * temMoveX;
+
+        //if (!_flyMode)
+        //{
+        //    move.y = 0;
+        //}
+        //move.Normalize();
+
+        ////  Блок плавного движения Начало
+        //float targetSpeed;
+
+        //if (input.PlayerActionControl.Boost.IsPressed() && (temMoveX != 0 || temMoveY != 0))
+        //    targetSpeed = _speed_run;
+        //else
+        //    targetSpeed = _speed_walk;
+
+        //Vector3 targetVelocity = move * targetSpeed;
+
+        //// плавное ускорение
+        //_currentVelocity = Vector3.Lerp(
+        //    _currentVelocity,
+        //    targetVelocity,
+        //    _acceleration * Time.deltaTime
+        //);
+
+        //_Character_controller.Move(_currentVelocity * Time.deltaTime);
+
+        ////  Блок плавного движения Конец
 
     }
 

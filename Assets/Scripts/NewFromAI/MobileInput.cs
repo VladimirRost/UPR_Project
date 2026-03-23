@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MobileInput : MonoBehaviour
 {
     public MobileJoystick joystick;
     public float speed = 3f;
+    public float acceleration = 1f;
+    private Vector3 currentVelocity;
 
     CharacterController controller;
 
@@ -14,10 +16,20 @@ public class MobileInput : MonoBehaviour
 
     void Update()
     {
-        Vector3 move =
+        Vector3 inputDir =
             transform.forward * joystick.Vertical +
             transform.right * joystick.Horizontal;
 
-        controller.Move(move * speed * Time.deltaTime);
+        // целевая скорость
+        Vector3 targetVelocity = inputDir * speed;
+
+        // плавный разгон
+        currentVelocity = Vector3.Lerp(
+            currentVelocity,
+            targetVelocity,
+            acceleration * Time.deltaTime
+        );
+
+        controller.Move(currentVelocity * Time.deltaTime);
     }
 }
