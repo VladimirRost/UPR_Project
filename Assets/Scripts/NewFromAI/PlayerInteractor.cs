@@ -1,87 +1,81 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-// Этот скрипт висит на игроке или камере.
-// Он ищет интерактивные объекты перед игроком.
+
 
 public class PlayerInteractor : MonoBehaviour
 {
     [Header("Raycast settings")]
-
-    // дальность взаимодействия
     public float interactDistance = 3f;
-
-    // камера игрока
     public Camera playerCamera;
 
-    // ссылка на систему ввода
     private PlayerController playerController;
-
-    // текущий объект под прицелом
     private IInteractable currentInteractable;
 
+    float lastInteractTime;
+    public float interactCooldown = 0.2f;
     void Start()
     {
-        // получаем главный контроллер игрока
         playerController = FindFirstObjectByType<PlayerController>();
 
-        // если камера не назначена
         if (!playerCamera)
             playerCamera = Camera.main;
     }
 
     void Update()
     {
+        CheckInteractable();
+        HandleInput();
+    }
 
-        CheckInteractable();  // Проверяем взгляд на объект
-                              // Проверяем кнопку взаимодействия
+    void HandleInput()
+    {
+        bool pressed = false;
 
-
-        //if (playerController.Input.PlayerActionControl.PressLeftButton.WasPressedThisFrame())
-        //{
-        //    TryInteract();
-
-        //}
-        if (playerController.Input.PlayerActionControl.Attack.WasPressedThisFrame())
+#if UNITY_ANDROID || UNITY_IOS
+    if (Touchscreen.current != null &&
+        Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+    {
+        pressed = true;
+    }
+#else
+        if (playerController != null &&
+            playerController.Input.PlayerActionControl.Attack.WasPressedThisFrame())
         {
-            TryInteract();
+            pressed = true;
         }
+#endif
 
-        //playerController.Input.PlayerActionControl.
+        if (!pressed) return;
 
-
-
-
+        TryInteract();
     }
 
     void TryInteract()
     {
-        // создаём луч из центра камеры
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Time.time - lastInteractTime < interactCooldown)
+            return;
 
+        lastInteractTime = Time.time;
+
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        // проверяем попадание
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            // ищем интерфейс IInteractable
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-            // если объект поддерживает взаимодействие
             if (interactable != null)
             {
                 interactable.Interact();
-                // Ниже сам пишу..................................
-                //interactable.OnFocus(); // Работает вызов
             }
         }
     }
 
-    //Проверка объекта под прицелом
     void CheckInteractable()
     {
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactDistance))
@@ -97,24 +91,21 @@ public class PlayerInteractor : MonoBehaviour
                     currentInteractable.OnFocus();
                 }
 
-               // Debug.Log("Объект под прицелом");
-
                 return;
             }
         }
 
-        // если никуда не смотрим
+        // если ничего нет
         if (currentInteractable != null)
         {
             currentInteractable.OnLoseFocus();
             currentInteractable = null;
         }
-
     }
 
+    // для UI-кнопки (мобилка)
     public void InteractButton()
     {
         TryInteract();
     }
-
 }

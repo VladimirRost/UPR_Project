@@ -7,12 +7,24 @@
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\lightsystempoint\\interactiveswitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\lightsystempoint\\interactiveswitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\lightsystempoint\\lightsystemcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\lightsystempoint\\lightsystemcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\iinteractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\lightinterracthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\lightinterracthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +34,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InteractiveSwitch.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:23:06.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LightSystemControl.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAswAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:21:07.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IInteractable.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:08:32.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InteractiveSwitch.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:04:34.152Z"
             },
             {
               "$type": "Document",
@@ -36,14 +96,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T10:54:26.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "InteractiveDoor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
@@ -51,21 +111,7 @@
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "ViewState": "AgIAAMgAAAAAAAAAAAAqwAYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T10:46:58.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LightInterractHandle.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightInterractHandle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightInterractHandle.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightInterractHandle.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\LightInterractHandle.cs",
-              "ViewState": "AgIAAL4CAAAAAAAAAAAmwN4CAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T09:55:04.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T10:46:58.94Z"
             }
           ]
         }
