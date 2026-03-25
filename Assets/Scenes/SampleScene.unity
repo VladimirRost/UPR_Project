@@ -1511,6 +1511,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   interactDistance: 3
   playerCamera: {fileID: 330585545}
+  showDebugRay: 1
+  rayColor: {r: 0, g: 1, b: 0, a: 1}
   interactCooldown: 0.2
 --- !u!1 &351368745
 GameObject:
@@ -5687,7 +5689,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6327525948420318645, guid: b1f0de4dababb3244a255420aff0b425, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29599845
+      value: 6.91
       objectReference: {fileID: 0}
     - target: {fileID: 6327525948420318645, guid: b1f0de4dababb3244a255420aff0b425, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6189,15 +6191,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1644358613532925739, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.07
+      value: -14.458794
       objectReference: {fileID: 0}
     - target: {fileID: 1644358613532925739, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0.26999998
       objectReference: {fileID: 0}
     - target: {fileID: 1644358613532925739, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.01
+      value: -9.105507
       objectReference: {fileID: 0}
     - target: {fileID: 1644358613532925739, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_LocalRotation.w

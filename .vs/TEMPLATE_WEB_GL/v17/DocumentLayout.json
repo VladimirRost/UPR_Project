@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\interactivedoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -48,9 +44,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:23:06.105Z"
+              "WhenOpened": "2026-03-24T11:23:06.105Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -78,25 +75,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "InteractiveSwitch.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\InteractiveSwitch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:04:34.152Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "PlayerInteractor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAANMAAAAAAAAAAAAAwPYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T10:54:26.604Z",
               "EditorCaption": ""
