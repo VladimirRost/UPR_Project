@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "U:\\UNITY\\TEMPLATE_WEB_GL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\fps_counter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\fps_counter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|u:\\unity\\template_web_gl\\assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\playerinteractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\fps_counter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\newfromai\\fps_counter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{157B5288-D7BD-4BDA-DF6A-0075AD386F04}|Assembly-CSharp.csproj|U:\\UNITY\\TEMPLATE_WEB_GL\\assets\\scripts\\newfromai\\lightsystempoint\\interactiveswitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,19 +47,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FPS_Counter.cs",
-              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
-              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAswA0AAAAnAAAAAAAAAA==",
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerMovement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T08:38:05.403Z",
+              "WhenOpened": "2026-03-30T08:28:43.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "FPS_Counter.cs",
+              "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
+              "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\FPS_Counter.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwA4AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T08:38:05.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "InteractiveSwitch.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\InteractiveSwitch.cs",
@@ -67,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LightSystemControl.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\LightSystemPoint\\LightSystemControl.cs",
@@ -79,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IInteractable.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\IInteractable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\IInteractable.cs",
@@ -97,14 +113,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "ToolTip": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
               "RelativeToolTip": "Assets\\Scripts\\NewFromAI\\PlayerInteractor.cs",
-              "ViewState": "AgIAANMAAAAAAAAAAAAAwPYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAwGgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-24T10:54:26.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "InteractiveDoor.cs",
               "DocumentMoniker": "U:\\UNITY\\TEMPLATE_WEB_GL\\Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NewFromAI\\InteractiveDoor.cs",

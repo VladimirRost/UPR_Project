@@ -11,7 +11,8 @@ public class FPS_Counter : MonoBehaviour
 {
     [Header("Настройки отображения")]
     [SerializeField] private Text fpsText; // Для стандартного UI Text
-    [SerializeField] private float alpha = 0.8f; // Степень прозрачности
+    [SerializeField] [Range(0f, 1f)] private float alpha = 0.8f; // Степень прозрачности
+    [SerializeField] private bool showOnStart = true; // Показывать счётчик при запуске
     // [SerializeField] private TextMeshProUGUI fpsText; // Для TextMeshPro (раскомментируйте эту строку и закомментируйте верхнюю)
 
     [Header("Настройки подсчёта")]

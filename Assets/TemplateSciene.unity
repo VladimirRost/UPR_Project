@@ -1511,7 +1511,6 @@ MonoBehaviour:
   interactDistance: 3
   playerCamera: {fileID: 330585545}
   showDebugRay: 1
-  rayColor: {r: 0, g: 1, b: 0, a: 1}
   interactCooldown: 0.2
 --- !u!1 &351368745
 GameObject:
@@ -3586,6 +3585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FPS_Counter
   fpsText: {fileID: 572893533}
   alpha: 0.2
+  showOnStart: 1
   updateInterval: 0.5
   sampleCount: 60
 --- !u!1 &878602981
@@ -3686,6 +3686,10 @@ PrefabInstance:
     - target: {fileID: 1644358613532925739, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881068319725154621, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.155
       objectReference: {fileID: 0}
     - target: {fileID: 4730140821127947187, guid: 0cd87bf342833da44892f5bd7fcea1c5, type: 3}
       propertyPath: m_Name
