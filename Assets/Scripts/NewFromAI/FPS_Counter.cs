@@ -7,7 +7,7 @@ using System.Collections;
 /// Скрипт для подсчёта и отображения FPS (кадров в секунду)
 /// Подходит для Unity 6 и выше
 /// </summary>
-public class FPS_Counter : MonoBehaviour
+public class FPS_Counter : MonoBehaviour, IFPSHandler
 {
     [Header("Настройки отображения")]
     [SerializeField] private Text fpsText; // Для стандартного UI Text
@@ -26,6 +26,10 @@ public class FPS_Counter : MonoBehaviour
     private float timeSinceLastUpdate; // Время с последнего обновления текста
     private int frameCounter; // Счётчик кадров между обновлениями
 
+    [SerializeField] private PlayerController player;
+
+
+
     void Start()
     {
         // Инициализация буфера для усреднения FPS
@@ -34,6 +38,8 @@ public class FPS_Counter : MonoBehaviour
         totalFrameTime = 0f;
         timeSinceLastUpdate = 0f;
         frameCounter = 0;
+
+
 
         // Проверка, назначен ли компонент Text
         if (fpsText == null)
@@ -49,9 +55,6 @@ public class FPS_Counter : MonoBehaviour
     {
         // Подсчёт FPS с усреднением по времени кадров (более точный метод)
         CalculateSmoothFPS();
-
-        // ИЛИ раскомментируйте для простого подсчёта FPS (менее точный, но быстрый)
-        // CalculateSimpleFPS();
 
         // Альтернативный метод: обновление текста по времени (работает вместе с любым методом выше)
         UpdateFPSDisplay();
@@ -83,25 +86,7 @@ public class FPS_Counter : MonoBehaviour
         frameCounter++;
     }
 
-    /// <summary>
-    /// Простой метод подсчёта FPS (по количеству кадров за интервал)
-    /// Менее точный, но более производительный
-    /// </summary>
-    private void CalculateSimpleFPS()
-    {
-        frameCounter++;
-        timeSinceLastUpdate += Time.unscaledDeltaTime;
 
-        if (timeSinceLastUpdate >= updateInterval)
-        {
-            float fps = frameCounter / timeSinceLastUpdate;
-            UpdateFPSText(Mathf.RoundToInt(fps));
-
-            // Сброс счётчиков
-            frameCounter = 0;
-            timeSinceLastUpdate = 0f;
-        }
-    }
 
     /// <summary>
     /// Обновление отображения FPS с заданным интервалом
@@ -162,39 +147,11 @@ public class FPS_Counter : MonoBehaviour
         fpsText.text = fpsString;
 
 
-        Debug.Log(fps);
+        //Debug.Log(fps);
 
-        // Для TextMeshPro (раскомментируйте, если используете TMP)
-        // if (fpsText is TextMeshProUGUI tmpText)
-        // {
-        //     tmpText.color = textColor;
-        //     tmpText.text = fpsString;
-        // }
-
-        // Опционально: вывод в консоль для отладки
-        // Debug.Log($"Текущий FPS: {fps}");
     }
 
-    /// <summary>
-    /// Корутина для обновления FPS (альтернативный метод)
-    /// Может быть более точным, но потребляет немного больше ресурсов
-    /// </summary>
-    private IEnumerator UpdateFPSRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(updateInterval);
-
-            // Вычисляем средний FPS за последние sampleCount кадров
-            float averageFrameTime = totalFrameTime / sampleCount;
-            float fps = 1f / averageFrameTime;
-
-            if (!float.IsInfinity(fps) && !float.IsNaN(fps))
-            {
-                UpdateFPSText(Mathf.RoundToInt(fps));
-            }
-        }
-    }
+ 
 
     /// <summary>
     /// Метод для получения текущего FPS (может быть полезен для других скриптов)
@@ -217,4 +174,33 @@ public class FPS_Counter : MonoBehaviour
     {
         return Mathf.RoundToInt(GetCurrentFPS());
     }
+
+
+    //   Ниже комметарии - которые не работают. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    void OnEnable()
+    {
+        if (player != null)
+        {
+            player.RegisterFPSHandler(this);
+            OnFPSToggle(player.IsFPSVisible);
+
+            
+        }
+    }
+
+    void OnDisable()
+    {
+        if (player != null)
+        {
+            player.UnregisterFPSHandler(this);
+        }
+    }
+
+    public void OnFPSToggle(bool isEnabled)
+    {
+        if (fpsText != null)
+            fpsText.gameObject.SetActive(isEnabled);
+    }
+
+
 }

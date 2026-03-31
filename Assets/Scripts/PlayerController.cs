@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -153,13 +154,46 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         input.Enable();
+        input.PlayerActionControl.ToggleFPS.performed += OnToggleFPS;  // Подписка на событие нажатия на F
     }
 
     private void OnDisable()
     {
         input.Disable();
+        input.PlayerActionControl.ToggleFPS.performed -= OnToggleFPS;// Подписка на событие нажатия на F
     }
 
+    private void OnToggleFPS(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        ToggleFPS();
+    }
+
+    private List<IFPSHandler> fpsHandlers = new List<IFPSHandler>();
+    private bool _showFPS;
+    public bool IsFPSVisible => _showFPS;
+
+    private void ToggleFPS()
+    {
+        _showFPS = !_showFPS;
+
+        foreach (var handler in fpsHandlers)
+        {
+            handler.OnFPSToggle(_showFPS);
+        }
+    }
+    public void RegisterFPSHandler(IFPSHandler handler)
+    {
+        if (!fpsHandlers.Contains(handler))
+            fpsHandlers.Add(handler);
+    }
+
+    public void UnregisterFPSHandler(IFPSHandler handler)
+    {
+        if (fpsHandlers.Contains(handler))
+            fpsHandlers.Remove(handler);
+    }
 
 
 

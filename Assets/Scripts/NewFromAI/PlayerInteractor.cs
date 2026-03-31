@@ -44,8 +44,15 @@ public class PlayerInteractor : MonoBehaviour
         bool pressed = false;
         Vector2 screenPosition = Vector2.zero;
 
-        // 📱 МОБИЛКА
-        if (Touchscreen.current != null)
+        // 🖥 МЫШЬ
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            pressed = true;
+            screenPosition = Mouse.current.position.ReadValue();
+        }
+
+        // 📱 TOUCH (если не было мыши)
+        if (!pressed && Touchscreen.current != null)
         {
             var touch = Touchscreen.current.primaryTouch;
 
@@ -53,15 +60,6 @@ public class PlayerInteractor : MonoBehaviour
             {
                 pressed = true;
                 screenPosition = touch.position.ReadValue();
-            }
-        }
-        // 🖥 ПК
-        else if (Mouse.current != null)
-        {
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                pressed = true;
-                screenPosition = Mouse.current.position.ReadValue();
             }
         }
 

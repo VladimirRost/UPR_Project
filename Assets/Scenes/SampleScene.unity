@@ -3584,10 +3584,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FPS_Counter
   fpsText: {fileID: 572893533}
-  alpha: 0.2
+  alpha: 0.8
   showOnStart: 1
   updateInterval: 0.5
   sampleCount: 60
+  player: {fileID: 606847006}
 --- !u!1 &878602981
 GameObject:
   m_ObjectHideFlags: 0

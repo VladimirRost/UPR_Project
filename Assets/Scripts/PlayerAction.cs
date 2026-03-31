@@ -190,6 +190,15 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleFPS"",
+                    ""type"": ""Button"",
+                    ""id"": ""013e9002-668e-4ce9-958a-bb7277910f88"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -456,6 +465,17 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""344efefd-03d8-4b27-bac4-6e766e00d10a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleFPS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -475,6 +495,7 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         m_PlayerActionControl_PressLeftButton = m_PlayerActionControl.FindAction("PressLeftButton", throwIfNotFound: true);
         m_PlayerActionControl_PressRightButton = m_PlayerActionControl.FindAction("PressRightButton", throwIfNotFound: true);
         m_PlayerActionControl_Attack = m_PlayerActionControl.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerActionControl_ToggleFPS = m_PlayerActionControl.FindAction("ToggleFPS", throwIfNotFound: true);
     }
 
     ~@PlayerClassControl()
@@ -566,6 +587,7 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionControl_PressLeftButton;
     private readonly InputAction m_PlayerActionControl_PressRightButton;
     private readonly InputAction m_PlayerActionControl_Attack;
+    private readonly InputAction m_PlayerActionControl_ToggleFPS;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerActionControl".
     /// </summary>
@@ -621,6 +643,10 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerActionControl/Attack".
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_PlayerActionControl_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerActionControl/ToggleFPS".
+        /// </summary>
+        public InputAction @ToggleFPS => m_Wrapper.m_PlayerActionControl_ToggleFPS;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -680,6 +706,9 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @ToggleFPS.started += instance.OnToggleFPS;
+            @ToggleFPS.performed += instance.OnToggleFPS;
+            @ToggleFPS.canceled += instance.OnToggleFPS;
         }
 
         /// <summary>
@@ -724,6 +753,9 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @ToggleFPS.started -= instance.OnToggleFPS;
+            @ToggleFPS.performed -= instance.OnToggleFPS;
+            @ToggleFPS.canceled -= instance.OnToggleFPS;
         }
 
         /// <summary>
@@ -841,5 +873,12 @@ public partial class @PlayerClassControl: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleFPS" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleFPS(InputAction.CallbackContext context);
     }
 }
