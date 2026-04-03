@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.siccity.gltfutility": {
+      "version": "file:C:/Users/AlekseyF/Desktop/GLTFUtility-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      }
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -103,6 +111,13 @@
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
       "depth": 3,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
