@@ -144,7 +144,7 @@ public class OpenDoorAuto : MonoBehaviour
         // Проверяем, что вошел игрок, дверь не анимируется, и мы еще не внутри
         if (other.CompareTag("Player") && !isAnimating && !isPlayerInside)
         {
-            Debug.Log("🚪 Игрок вошел в триггер двери - начинаем открытие");
+            //Debug.Log("🚪 Игрок вошел в триггер двери - начинаем открытие");
             isPlayerInside = true;
 
             // Отменяем запланированное автоматическое закрытие, если оно было
@@ -169,7 +169,7 @@ public class OpenDoorAuto : MonoBehaviour
         // Проверяем, что вышел игрок, дверь не анимируется, и мы были внутри
         if (other.CompareTag("Player") && !isAnimating && isPlayerInside)
         {
-            Debug.Log("🚪 Игрок вышел из триггера двери");
+            //Debug.Log("🚪 Игрок вышел из триггера двери");
             isPlayerInside = false;
 
             // Если нужно автоматическое закрытие и дверь открыта
@@ -199,7 +199,7 @@ public class OpenDoorAuto : MonoBehaviour
         // Блокируем возможность запуска другой анимации
         isAnimating = true;
 
-        Debug.Log("🚪 Начинаем анимацию открытия двери");
+        //Debug.Log("🚪 Начинаем анимацию открытия двери");
 
         // Запускаем анимацию ручки (параллельно с движением двери)
         StartCoroutine(AnimateHandleCoroutine(true));
@@ -261,7 +261,7 @@ public class OpenDoorAuto : MonoBehaviour
         isOpen = true;
         isAnimating = false;
 
-        Debug.Log("🚪 Дверь полностью открыта");
+        //Debug.Log("🚪 Дверь полностью открыта");
     }
 
     // Корутина закрытия двери
@@ -270,7 +270,7 @@ public class OpenDoorAuto : MonoBehaviour
         // Блокируем возможность запуска другой анимации
         isAnimating = true;
 
-        Debug.Log("🚪 Начинаем анимацию закрытия двери");
+        //Debug.Log("🚪 Начинаем анимацию закрытия двери");
 
         // Запускаем анимацию ручки (возврат в исходное положение)
         StartCoroutine(AnimateHandleCoroutine(false));
@@ -316,7 +316,7 @@ public class OpenDoorAuto : MonoBehaviour
         isOpen = false;
         isAnimating = false;
 
-        Debug.Log("🚪 Дверь полностью закрыта");
+        //Debug.Log("🚪 Дверь полностью закрыта");
     }
 
     // ============================================

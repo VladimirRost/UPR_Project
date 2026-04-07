@@ -25,11 +25,8 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     [Header("Автозакрытие")]
     [Tooltip("Если включено — дверь автоматически закроется")]
     public bool autoClose;
-
     [Tooltip("Через сколько секунд закрывать")]
     public float autoCloseDelay = 3f;
-
-
 
     [Header("Анимация ручки двери")]
     public Transform doorHandle;
@@ -38,34 +35,25 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     public float handleSpeed = 6f;
 
     [Header("Звуковое сопровождение")]
-    private AudioSource audioSource;
     public AudioClip openSound;
     public AudioClip closeSound;
+    private AudioSource audioSource; // Ссылка на источник звука
 
     Quaternion handleStartRotation;
     Quaternion handlePressedRotation;
 
-
-    // Старая подсветка объекта
     [Header("Объект для подсветки")]
     public Renderer[] renderers;
     private Color highlightColor = Color.yellow;
     private Color[] originalEmission;
-
-
-
     private bool isOpen;
-
     private Quaternion closedRotation;
     private Quaternion openRotation;
-
     private Vector3 closedPosition;
     private Vector3 openPosition;
-
     private float autoCloseTimer;
 
-
-    Outline outline;  // Подсветка по контуру  ------------------------------------------
+    Outline outline;  // Подсветка по контуру 
 
     [Header("Цвет наведения")]
     [SerializeField] Shader outlineMaskShader;
@@ -74,60 +62,43 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     public float outlineAppearSpeed = 10f;
     public float pulseAmplitude = 0.5f;
     public float pulseSpeed = 3f;
-
     bool isFocused;
-
 
     void Start()
     {
+        // Инициализация AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Чтобы звук не играл сам по себе при запуске сцены
+
         closedRotation = transform.localRotation;
         closedPosition = transform.localPosition;
-
         openRotation = closedRotation * Quaternion.AngleAxis(openAngle, rotationAxis);
         openPosition = closedPosition + slideDirection.normalized * slideDistance;
 
-        if (doorHandle)  //  ручка двери установка начальных значений
+        if (doorHandle)
         {
             handleStartRotation = doorHandle.localRotation;
-
-            handlePressedRotation =
-                handleStartRotation *
-                Quaternion.AngleAxis(handleAngle, handleAxis);
+            handlePressedRotation = handleStartRotation * Quaternion.AngleAxis(handleAngle, handleAxis);
         }
 
-        //if (renderers != null && renderers.Length > 0)   // сохраняем исходный цвет Emission объекта
-        //{
-        //    originalEmission = new Color[renderers.Length];
-
-        //    for (int i = 0; i < renderers.Length; i++)
-        //    {
-        //        if (renderers[i].material.HasProperty("_EmissionColor"))
-        //        {
-        //            originalEmission[i] =
-        //                renderers[i].material.GetColor("_EmissionColor");
-        //        }
-        //    }
-        //}
-
-        outline = GetComponentInChildren<Outline>();  // инициализация контурной подсветки
+        outline = GetComponentInChildren<Outline>();
         if (outline != null)
         {
             outline.enabled = false;
             outline.OutlineWidth = 5f;
         }
-
-
-
-
-
     }
 
     void Update()
     {
+        // Логика движения двери
         if (doorType == DoorType.Rotate)
         {
             Quaternion target = isOpen ? openRotation : closedRotation;
-
             transform.localRotation = Quaternion.RotateTowards(
                 transform.localRotation,
                 target,
@@ -137,7 +108,6 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
         else
         {
             Vector3 target = isOpen ? openPosition : closedPosition;
-
             transform.localPosition = Vector3.MoveTowards(
                 transform.localPosition,
                 target,
@@ -145,28 +115,21 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
             );
         }
 
-        // логика авто закрытия
+        // Логика авто закрытия
         if (autoClose && isOpen)
         {
             autoCloseTimer -= Time.deltaTime;
-
             if (autoCloseTimer <= 0)
             {
                 isOpen = false;
+                PlayDoorSound(); // Добавлено: звук при автозакрытии
             }
         }
 
-
-
-        // Поворот ручки  ----------------------------
-
-
-
-        // Предыдущий код
+        // Поворот ручки
         if (doorHandle)
         {
             Quaternion target = isOpen ? handlePressedRotation : handleStartRotation;
-
             doorHandle.localRotation = Quaternion.Slerp(
                 doorHandle.localRotation,
                 target,
@@ -174,33 +137,30 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
             );
         }
 
-        // Анимация контура подсветки Начало  ------------------------------------
-        if (outline == null) return;
-
-        float targetWidth = isFocused ? outlineWidth : 0f;
-
-        outline.OutlineWidth = Mathf.Lerp(
-            outline.OutlineWidth,
-            targetWidth,
-            Time.deltaTime * outlineAppearSpeed
-        );
-
-        if (isFocused)
+        // Анимация контура подсветки
+        if (outline != null)
         {
-            float pulse =
-                Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
+            float targetWidth = isFocused ? outlineWidth : 0f;
+            outline.OutlineWidth = Mathf.Lerp(
+                outline.OutlineWidth,
+                targetWidth,
+                Time.deltaTime * outlineAppearSpeed
+            );
 
-            outline.OutlineWidth += pulse;
+            if (isFocused)
+            {
+                float pulse = Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
+                outline.OutlineWidth += pulse;
+            }
         }
-
-        // Анимация контура подсветки Конец   ------------------------
-
-
     }
 
     public void Interact()
     {
         isOpen = !isOpen;
+
+        // Добавлено: воспроизведение звука при взаимодействии
+        PlayDoorSound();
 
         if (isOpen && autoClose)
         {
@@ -213,58 +173,48 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
         }
     }
 
-    public void OnFocus() 
+    // Вспомогательный метод для звука
+    private void PlayDoorSound()
     {
-       
+        if (audioSource == null) return;
 
+        if (isOpen)
+        {
+            if (openSound != null) audioStreamPlay(openSound);
+        }
+        else
+        {
+            if (closeSound != null) audioStreamPlay(closeSound);
+        }
+    }
+
+    // Метод для чистого проигрывания (используем PlayOneShot, чтобы звуки не обрывали друг друга)
+    private void audioStreamPlay(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void OnFocus()
+    {
         if (outline != null)
         {
-            outline.enabled = true;   // включаем контур
-            outline.EmissionOn();     // включаем свечение
+            outline.enabled = true;
+            outline.EmissionOn();
         }
         isFocused = true;
-
-        if (InteractionUI.Instance)
-            InteractionUI.Instance.Show();
-
-
-
+        if (InteractionUI.Instance) InteractionUI.Instance.Show();
     }
 
     public void OnLoseFocus()
     {
         if (outline != null)
         {
-            outline.enabled = false;  // выключаем контур
-            outline.EmissionOff();    // выключаем свечение
+            outline.enabled = false;
+            outline.EmissionOff();
         }
         isFocused = false;
-
-        if (InteractionUI.Instance)
-            InteractionUI.Instance.Hide();
-
-
+        if (InteractionUI.Instance) InteractionUI.Instance.Hide();
     }
-    
-    // HighLight не используется
-    void Highlight(bool state)  
-    {
-        if (renderers == null) return;
 
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            if (renderers[i].material.HasProperty("_EmissionColor"))
-            {
-                if (state)
-                {
-                    renderers[i].material.EnableKeyword("_EMISSION");
-                    renderers[i].material.SetColor("_EmissionColor", highlightColor);
-                }
-                else
-                {
-                    renderers[i].material.SetColor("_EmissionColor", originalEmission[i]);
-                }
-            }
-        }
-    }
+    // ... остальной код без изменений
 }

@@ -24,8 +24,22 @@ public class ZoneLightController : MonoBehaviour
     private Material[] instanceMaterialsOn;  // Экземпляры материалов для плавного затухания
     private bool materialsAreInstanced = false;
 
+    [Header("Audio Settings")]
+    private AudioSource audioSource; // Ссылка на AudioSource
+    public AudioClip turnOnSound;   // Звук включения
+    public AudioClip turnOffSound;  // Звук выключения
+
     void Start()
     {
+
+        // Настройка AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Чтобы звук не играл сам по себе при старте сцены
+
         // Если массивы не заполнены, ищем автоматически
         if (lights == null || lights.Length == 0)
         {
@@ -99,6 +113,16 @@ public class ZoneLightController : MonoBehaviour
         {
             isPlayerInside = true;
 
+            // Debug.Log("Чувак в зоне включения");
+
+            // --- ДОБАВЛЕНО: Воспроизведение звука включения ---
+            if (audioSource != null && turnOnSound != null)
+            {
+                audioSource.PlayOneShot(turnOnSound);
+            }
+            // -------------------------------------------------
+
+
             if (useFade)
             {
                 // Плавное включение
@@ -119,6 +143,13 @@ public class ZoneLightController : MonoBehaviour
         if (other.CompareTag("Player") && isPlayerInside)
         {
             isPlayerInside = false;
+
+            // --- ДОБАВЛЕНО: Воспроизведение звука выключения ---
+            if (audioSource != null && turnOffSound != null)
+            {
+                audioSource.PlayOneShot(turnOffSound);
+            }
+            // ----------------------------------------------------
 
             if (useFade)
             {
