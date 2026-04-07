@@ -59,8 +59,8 @@ public class ZoneLightController : MonoBehaviour
         // Устанавливаем начальное состояние материалов
         SetInitialMaterials();
 
-        Debug.Log($"Найдено источников света: {(lights != null ? lights.Length : 0)}");
-        Debug.Log($"Найдено рендереров: {(lampMeshes != null ? lampMeshes.Length : 0)}");
+        //Debug.Log($"Найдено источников света: {(lights != null ? lights.Length : 0)}");
+        //Debug.Log($"Найдено рендереров: {(lampMeshes != null ? lampMeshes.Length : 0)}");
     }
 
     void SetInitialMaterials()

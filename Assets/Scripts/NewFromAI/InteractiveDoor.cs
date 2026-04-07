@@ -29,11 +29,18 @@ public class InteractiveDoor : MonoBehaviour, IInteractable
     [Tooltip("Через сколько секунд закрывать")]
     public float autoCloseDelay = 3f;
 
-     [Header("Анимация ручки двери")]
+
+
+    [Header("Анимация ручки двери")]
     public Transform doorHandle;
     public Vector3 handleAxis = Vector3.right; // вокруг какой оси вращать
     public float handleAngle = -40f;
     public float handleSpeed = 6f;
+
+    [Header("Звуковое сопровождение")]
+    private AudioSource audioSource;
+    public AudioClip openSound;
+    public AudioClip closeSound;
 
     Quaternion handleStartRotation;
     Quaternion handlePressedRotation;
