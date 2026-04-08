@@ -9,7 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 768a5a18fd6eb914f980bf85dd7b34ec, type: 3}
   importSettings:
-    materials: 0
+    materials: 1
     shaderOverrides:
       metallic: {fileID: -6465566751694194690, guid: e0c5b0d3806e0164ea6a5e363e6ba393, type: 3}
       metallicBlend: {fileID: -6465566751694194690, guid: 9083aef598cc40f43b66edad23f013c3, type: 3}
@@ -21,7 +21,7 @@ ScriptedImporter:
       interpolationMode: -1
       compressBlendShapeKeyFrames: 1
       useLegacyClips: 0
-    generateLightmapUVs: 1
+    generateLightmapUVs: 0
     hardAngle: 88
     angleError: 8
     areaError: 15
